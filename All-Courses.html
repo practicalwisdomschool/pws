@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Courses - Practical Wisdom School</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#1B365D',secondary:'#FF4B4B'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+background-color: #F5F7FA;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+display: none;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.custom-checkbox {
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+.checkmark {
+height: 18px;
+width: 18px;
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 4px;
+position: relative;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #1B365D;
+border-color: #1B365D;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-radio {
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+.custom-radio input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+.radio-mark {
+height: 18px;
+width: 18px;
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 50%;
+position: relative;
+}
+.custom-radio input:checked ~ .radio-mark {
+border-color: #1B365D;
+}
+.radio-mark:after {
+content: "";
+position: absolute;
+display: none;
+top: 4px;
+left: 4px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: #1B365D;
+}
+.custom-radio input:checked ~ .radio-mark:after {
+display: block;
+}
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="bg-white shadow-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex items-center">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+<div class="hidden md:ml-10 md:flex md:space-x-8">
+<a href="Landing-1.html" data-readdy="true" class="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium">Home</a>
+<a href="Category.html" data-readdy="true" class="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium">Categories</a>
+<a href="#" class="text-primary border-b-2 border-primary px-3 py-2 text-sm font-medium">Courses</a>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center md:hidden">
+<button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 focus:outline-none">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Breadcrumb -->
+<div class="bg-white border-b">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+<nav class="flex text-sm">
+<a href="#" class="text-gray-500 hover:text-primary">Home</a>
+<span class="mx-2 text-gray-400">/</span>
+<span class="text-primary font-medium">All Courses</span>
+</nav>
+</div>
+</div>
+<!-- Main Content -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-gray-900">All Courses</h1>
+<p class="mt-2 text-lg text-gray-600">Discover our comprehensive collection of practical courses designed to equip children with real-world skills.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-8">
+<!-- Sidebar Filters -->
+<div class="w-full md:w-64 bg-white rounded shadow-sm p-5 h-fit">
+<h2 class="text-lg font-semibold text-gray-900 mb-4">Filters</h2>
+<!-- Categories Filter -->
+<div class="mb-6">
+<h3 class="text-md font-medium text-gray-800 mb-3">Categories</h3>
+<div class="space-y-2">
+<label class="custom-checkbox flex items-center">
+<input type="checkbox" checked>
+<span class="checkmark mr-3"></span>
+<span class="text-sm">All Categories</span>
+</label>
+<label class="custom-checkbox flex items-center">
+<input type="checkbox">
+<span class="checkmark mr-3"></span>
+<span class="text-sm">Career</span>
+</label>
+<label class="custom-checkbox flex items-center">
+<input type="checkbox">
+<span class="checkmark mr-3"></span>
+<span class="text-sm">Lifeskills</span>
+</label>
+<label class="custom-checkbox flex items-center">
+<input type="checkbox">
+<span class="checkmark mr-3"></span>
+<span class="text-sm">MS-Office Suite</span>
+</label>
+<label class="custom-checkbox flex items-center">
+<input type="checkbox">
+<span class="checkmark mr-3"></span>
+<span class="text-sm">Tech</span>
+</label>
+<label class="custom-checkbox flex items-center">
+<input type="checkbox">
+<span class="checkmark mr-3"></span>
+<span class="text-sm">Health and Wellness</span>
+</label>
+<div class="pt-2">
+<button class="text-primary text-sm font-medium flex items-center">
+<span>Show more</span>
+<div class="w-4 h-4 ml-1 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-200 my-4"></div>
+<!-- Age Group Filter -->
+<div class="mb-6">
+<h3 class="text-md font-medium text-gray-800 mb-3">Age Group</h3>
+<div class="space-y-2">
+<label class="custom-checkbox flex items-center">
+<input type="checkbox" checked>
+<span class="checkmark mr-3"></span>
+<span class="text-sm">All Ages</span>
+</label>
+<label class="custom-checkbox flex items-center">
+<input type="checkbox">
+<span class="checkmark mr-3"></span>
+<span class="text-sm">Ages 5-7</span>
+</label>
+<label class="custom-checkbox flex items-center">
+<input type="checkbox">
+<span class="checkmark mr-3"></span>
+<span class="text-sm">Ages 8-10</span>
+</label>
+<label class="custom-checkbox flex items-center">
+<input type="checkbox">
+<span class="checkmark mr-3"></span>
+<span class="text-sm">Ages 11-13</span>
+</label>
+<label class="custom-checkbox flex items-center">
+<input type="checkbox">
+<span class="checkmark mr-3"></span>
+<span class="text-sm">Ages 14-16</span>
+</label>
+<label class="custom-checkbox flex items-center">
+<input type="checkbox">
+<span class="checkmark mr-3"></span>
+<span class="text-sm">Ages 17+</span>
+</label>
+</div>
+</div>
+<div class="border-t border-gray-200 my-4"></div>
+<!-- Skill Level Filter -->
+<div>
+<h3 class="text-md font-medium text-gray-800 mb-3">Skill Level</h3>
+<div class="space-y-2">
+<label class="custom-radio flex items-center">
+<input type="radio" name="skill-level" checked>
+<span class="radio-mark mr-3"></span>
+<span class="text-sm">All Levels</span>
+</label>
+<label class="custom-radio flex items-center">
+<input type="radio" name="skill-level">
+<span class="radio-mark mr-3"></span>
+<span class="text-sm">Beginner</span>
+</label>
+<label class="custom-radio flex items-center">
+<input type="radio" name="skill-level">
+<span class="radio-mark mr-3"></span>
+<span class="text-sm">Intermediate</span>
+</label>
+<label class="custom-radio flex items-center">
+<input type="radio" name="skill-level">
+<span class="radio-mark mr-3"></span>
+<span class="text-sm">Advanced</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Course Listings -->
+<div class="flex-1">
+<!-- Search and Filter Bar -->
+<div class="bg-white rounded shadow-sm p-4 mb-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<div class="w-5 h-5 text-gray-400 flex items-center justify-center">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<input type="search" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-sm" placeholder="Search courses...">
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<div class="flex space-x-2">
+<button class="bg-primary text-white px-3 py-1.5 !rounded-button text-sm whitespace-nowrap">All Ages</button>
+<button class="bg-white border border-gray-300 text-gray-700 px-3 py-1.5 !rounded-button text-sm hover:bg-gray-50 whitespace-nowrap">Ages 5-10</button>
+<button class="bg-white border border-gray-300 text-gray-700 px-3 py-1.5 !rounded-button text-sm hover:bg-gray-50 whitespace-nowrap">Ages 11-16</button>
+<button class="bg-white border border-gray-300 text-gray-700 px-3 py-1.5 !rounded-button text-sm hover:bg-gray-50 whitespace-nowrap">Ages 17+</button>
+</div>
+<div class="flex items-center ml-auto space-x-4">
+<div class="relative">
+<button class="flex items-center bg-white border border-gray-300 text-gray-700 px-3 py-1.5 !rounded-button text-sm hover:bg-gray-50 whitespace-nowrap">
+<span>Sort: Newest First</span>
+<div class="w-4 h-4 ml-1 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+</div>
+<div class="flex items-center space-x-2">
+<button class="w-8 h-8 bg-primary text-white rounded flex items-center justify-center">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-layout-grid-line"></i>
+</div>
+</button>
+<button class="w-8 h-8 bg-white border border-gray-300 text-gray-600 rounded flex items-center justify-center">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-list-check"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Course Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Course Card 1 -->
+<div class="bg-white rounded shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=a%20child%20learning%20financial%20literacy%2C%20colorful%20educational%20setting%20with%20money%20concepts%2C%20bright%20classroom%20environment%2C%20financial%20education%20for%20kids%2C%20high%20quality%2C%20detailed&width=400&height=225&seq=1&orientation=landscape" alt="Financial Literacy for Kids" class="w-full h-48 object-cover object-top">
+<span class="absolute top-2 right-2 bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded-full">Ages 8-10</span>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-gray-900 mb-2">Financial Literacy for Kids</h3>
+<p class="text-gray-600 text-sm mb-3">Teach your child the fundamentals of money management through fun activities and real-world examples.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Finance</span>
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Life Skills</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button text-sm font-medium whitespace-nowrap transition-colors duration-300">View Details</button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-white rounded shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=teenagers%20learning%20coding%20and%20programming%2C%20modern%20computer%20lab%2C%20students%20working%20on%20laptops%2C%20technology%20education%2C%20bright%20classroom%20setting%2C%20educational%20environment%2C%20high%20quality%2C%20detailed&width=400&height=225&seq=2&orientation=landscape" alt="Coding for Teens" class="w-full h-48 object-cover object-top">
+<span class="absolute top-2 right-2 bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded-full">Ages 14-16</span>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-gray-900 mb-2">Coding for Teens</h3>
+<p class="text-gray-600 text-sm mb-3">Introduce your teen to the world of programming with hands-on projects and interactive lessons.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Tech</span>
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Career</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button text-sm font-medium whitespace-nowrap transition-colors duration-300">View Details</button>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="bg-white rounded shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=young%20children%20learning%20public%20speaking%2C%20classroom%20presentation%2C%20confident%20child%20speaking%20to%20audience%2C%20communication%20skills%2C%20bright%20educational%20setting%2C%20high%20quality%2C%20detailed&width=400&height=225&seq=3&orientation=landscape" alt="Public Speaking for Children" class="w-full h-48 object-cover object-top">
+<span class="absolute top-2 right-2 bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded-full">Ages 5-7</span>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-gray-900 mb-2">Public Speaking for Children</h3>
+<p class="text-gray-600 text-sm mb-3">Build confidence and communication skills in young children through engaging speaking activities.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Social Quotient</span>
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Life Skills</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button text-sm font-medium whitespace-nowrap transition-colors duration-300">View Details</button>
+</div>
+</div>
+</div>
+<!-- Course Card 4 -->
+<div class="bg-white rounded shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=teenager%20learning%20Microsoft%20Excel%2C%20office%20skills%20education%2C%20student%20working%20on%20spreadsheet%2C%20MS%20Office%20training%2C%20bright%20classroom%20environment%2C%20educational%20setting%2C%20high%20quality%2C%20detailed&width=400&height=225&seq=4&orientation=landscape" alt="Microsoft Excel Basics" class="w-full h-48 object-cover object-top">
+<span class="absolute top-2 right-2 bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded-full">Ages 11-13</span>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-gray-900 mb-2">Microsoft Excel Basics</h3>
+<p class="text-gray-600 text-sm mb-3">Learn essential spreadsheet skills that will prepare your child for academic and professional success.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">MS-Office Suite</span>
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Tech</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button text-sm font-medium whitespace-nowrap transition-colors duration-300">View Details</button>
+</div>
+</div>
+</div>
+<!-- Course Card 5 -->
+<div class="bg-white rounded shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=teenagers%20learning%20healthy%20cooking%2C%20nutrition%20education%2C%20kids%20in%20kitchen%20classroom%2C%20food%20preparation%2C%20bright%20educational%20environment%2C%20culinary%20skills%20for%20youth%2C%20high%20quality%2C%20detailed&width=400&height=225&seq=5&orientation=landscape" alt="Healthy Cooking for Teens" class="w-full h-48 object-cover object-top">
+<span class="absolute top-2 right-2 bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded-full">Ages 14-16</span>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-gray-900 mb-2">Healthy Cooking for Teens</h3>
+<p class="text-gray-600 text-sm mb-3">Teach teenagers essential cooking skills and nutrition knowledge for a healthier lifestyle.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Health and Wellness</span>
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Home and Lifestyle</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button text-sm font-medium whitespace-nowrap transition-colors duration-300">View Details</button>
+</div>
+</div>
+</div>
+<!-- Course Card 6 -->
+<div class="bg-white rounded shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=young%20adult%20learning%20digital%20marketing%2C%20social%20media%20education%2C%20online%20marketing%20skills%2C%20student%20with%20laptop%20and%20social%20media%20graphics%2C%20bright%20educational%20environment%2C%20high%20quality%2C%20detailed&width=400&height=225&seq=6&orientation=landscape" alt="Digital Marketing Fundamentals" class="w-full h-48 object-cover object-top">
+<span class="absolute top-2 right-2 bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded-full">Ages 17+</span>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-gray-900 mb-2">Digital Marketing Fundamentals</h3>
+<p class="text-gray-600 text-sm mb-3">Prepare young adults for the digital economy with practical marketing skills and strategies.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Marketing</span>
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Career</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button text-sm font-medium whitespace-nowrap transition-colors duration-300">View Details</button>
+</div>
+</div>
+</div>
+<!-- Course Card 7 -->
+<div class="bg-white rounded shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=children%20learning%20environmental%20sustainability%2C%20eco-friendly%20education%2C%20kids%20planting%20trees%2C%20environmental%20science%20for%20youth%2C%20bright%20outdoor%20educational%20setting%2C%20high%20quality%2C%20detailed&width=400&height=225&seq=7&orientation=landscape" alt="Environmental Sustainability" class="w-full h-48 object-cover object-top">
+<span class="absolute top-2 right-2 bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded-full">Ages 8-10</span>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-gray-900 mb-2">Environmental Sustainability</h3>
+<p class="text-gray-600 text-sm mb-3">Educate children about environmental responsibility through interactive projects and activities.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">ESG</span>
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Life Skills</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button text-sm font-medium whitespace-nowrap transition-colors duration-300">View Details</button>
+</div>
+</div>
+</div>
+<!-- Course Card 8 -->
+<div class="bg-white rounded shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=children%20learning%20emotional%20intelligence%2C%20social%20skills%20education%2C%20kids%20discussing%20feelings%20in%20classroom%2C%20bright%20educational%20environment%2C%20empathy%20training%20for%20youth%2C%20high%20quality%2C%20detailed&width=400&height=225&seq=8&orientation=landscape" alt="Emotional Intelligence" class="w-full h-48 object-cover object-top">
+<span class="absolute top-2 right-2 bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded-full">Ages 11-13</span>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-gray-900 mb-2">Emotional Intelligence</h3>
+<p class="text-gray-600 text-sm mb-3">Help children develop emotional awareness and social skills through guided activities and discussions.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Social Quotient</span>
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Health and Wellness</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button text-sm font-medium whitespace-nowrap transition-colors duration-300">View Details</button>
+</div>
+</div>
+</div>
+<!-- Course Card 9 -->
+<div class="bg-white rounded shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=young%20adult%20learning%20personal%20finance%2C%20budgeting%20education%2C%20investment%20basics%20for%20teens%2C%20financial%20planning%2C%20bright%20classroom%20environment%2C%20educational%20setting%20with%20financial%20charts%2C%20high%20quality%2C%20detailed&width=400&height=225&seq=9&orientation=landscape" alt="Personal Finance for Young Adults" class="w-full h-48 object-cover object-top">
+<span class="absolute top-2 right-2 bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded-full">Ages 17+</span>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-gray-900 mb-2">Personal Finance for Young Adults</h3>
+<p class="text-gray-600 text-sm mb-3">Prepare young adults for financial independence with practical lessons on budgeting, saving, and investing.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Finance</span>
+<span class="bg-blue-50 text-primary text-xs px-2 py-1 rounded">Life Skills</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white text-primary hover:bg-primary hover:text-white px-6 py-2 !rounded-button text-sm font-medium whitespace-nowrap transition-colors duration-300">View Details</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-10 flex justify-center">
+<nav class="inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+<a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+<span class="sr-only">Previous</span>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-left-s-line"></i>
+</div>
+</a>
+<a href="#" class="relative inline-flex items-center px-4 py-2 border border-primary bg-primary text-sm font-medium text-white">1</a>
+<a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">2</a>
+<a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">3</a>
+<a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">4</a>
+<span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">...</span>
+<a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">8</a>
+<a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+<span class="sr-only">Next</span>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-right-s-line"></i>
+</div>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Category checkboxes
+const categoryCheckboxes = document.querySelectorAll('.custom-checkbox input[type="checkbox"]');
+categoryCheckboxes.forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+if (this.checked && this.parentElement.querySelector('span:last-child').textContent === 'All Categories') {
+categoryCheckboxes.forEach(cb => {
+if (cb !== this) {
+cb.checked = false;
+}
+});
+} else if (this.checked) {
+const allCategoriesCheckbox = Array.from(categoryCheckboxes).find(cb =>
+cb.parentElement.querySelector('span:last-child').textContent === 'All Categories'
+);
+if (allCategoriesCheckbox) {
+allCategoriesCheckbox.checked = false;
+}
+}
+});
+});
+// Age group filter buttons
+const ageButtons = document.querySelectorAll('.flex.space-x-2 button');
+ageButtons.forEach(button => {
+button.addEventListener('click', function() {
+ageButtons.forEach(btn => {
+btn.classList.remove('bg-primary', 'text-white');
+btn.classList.add('bg-white', 'border', 'border-gray-300', 'text-gray-700', 'hover:bg-gray-50');
+});
+this.classList.remove('bg-white', 'border', 'border-gray-300', 'text-gray-700', 'hover:bg-gray-50');
+this.classList.add('bg-primary', 'text-white');
+});
+});
+// View switcher
+const gridViewBtn = document.querySelector('.ri-layout-grid-line').parentElement.parentElement;
+const listViewBtn = document.querySelector('.ri-list-check').parentElement.parentElement;
+gridViewBtn.addEventListener('click', function() {
+gridViewBtn.classList.remove('bg-white', 'border', 'border-gray-300', 'text-gray-600');
+gridViewBtn.classList.add('bg-primary', 'text-white');
+listViewBtn.classList.remove('bg-primary', 'text-white');
+listViewBtn.classList.add('bg-white', 'border', 'border-gray-300', 'text-gray-600');
+});
+listViewBtn.addEventListener('click', function() {
+listViewBtn.classList.remove('bg-white', 'border', 'border-gray-300', 'text-gray-600');
+listViewBtn.classList.add('bg-primary', 'text-white');
+gridViewBtn.classList.remove('bg-primary', 'text-white');
+gridViewBtn.classList.add('bg-white', 'border', 'border-gray-300', 'text-gray-600');
+});
+});
+</script>
+</body>
+</html>

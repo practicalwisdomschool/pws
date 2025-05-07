@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health and Wellness Courses</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4A90E2',secondary:'#67C23A'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+background-color: #f9fafb;
+}
+.course-card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.course-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+display: none;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+</style>
+</head>
+<body>
+<nav class="bg-white shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center space-x-8">
+<a href="#" class="font-['Pacifico'] text-2xl text-primary">logo</a>
+<div class="hidden md:flex items-center space-x-4">
+    <a href="Post-Login-Landing.html" data-readdy="true" class="text-primary font-medium">Home</a>
+    <a href="Category_Post.html" data-readdy="true" class="text-gray-600 hover:text-primary font-medium">Categories</a>
+</div>
+</div>
+<div class="md:hidden">
+<button id="mobileMenuButton" class="text-gray-600 hover:text-primary">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+</div>
+<div id="mobileMenu" class="hidden md:hidden">
+<div class="px-4 py-2 space-y-1">
+    <a href="Post-Login-Landing.html" class="block px-2 py-2 text-primary font-medium">Home</a>
+    <a href="Category_Post.html" class="block px-2 py-2 text-primary font-medium">Categories</a>
+<button id="mobileCategoriesButton" class="flex items-center justify-between w-full px-2 py-2 text-gray-600 hover:text-primary font-medium">
+Categories
+<i class="ri-arrow-down-s-line"></i>
+</button>
+<div id="mobileCategoriesMenu" class="hidden pl-4 space-y-1">
+<a href="#" class="block px-2 py-2 text-gray-600 hover:text-primary">Nutrition</a>
+<a href="#" class="block px-2 py-2 text-gray-600 hover:text-primary">First Aid</a>
+<a href="#" class="block px-2 py-2 text-gray-600 hover:text-primary">Mental Health</a>
+<a href="#" class="block px-2 py-2 text-gray-600 hover:text-primary">Emotional Skills</a>
+</div>
+</div>
+</div>
+</nav>
+<header class="bg-gradient-to-r from-primary/10 to-secondary/10">
+<div class="container mx-auto px-4 py-16 md:py-24">
+<div class="flex flex-col items-center text-center">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Health and Wellness Courses</h1>
+<p class="text-lg text-gray-600 max-w-3xl mb-8">Empowering children with essential health knowledge and emotional intelligence skills for a balanced and healthy lifestyle. Our courses focus on practical wellness education that builds confidence and wellbeing.</p>
+<div class="relative w-full max-w-md">
+<input type="search" placeholder="Search for courses..." class="w-full pl-12 pr-4 py-3 rounded-full border-none shadow-md focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm">
+<div class="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 flex items-center justify-center text-gray-400">
+<i class="ri-search-line ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-4 py-12">
+<div class="mb-10">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-semibold text-gray-800">Featured Courses</h2>
+<div class="flex items-center space-x-2 bg-white rounded-full p-1 shadow-sm border border-gray-100">
+<button class="px-4 py-2 rounded-full bg-primary text-white font-medium text-sm !rounded-button whitespace-nowrap">All Courses</button>
+<button class="px-4 py-2 rounded-full text-gray-600 font-medium text-sm hover:bg-gray-50 !rounded-button whitespace-nowrap">Popular</button>
+<button class="px-4 py-2 rounded-full text-gray-600 font-medium text-sm hover:bg-gray-50 !rounded-button whitespace-nowrap">New</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Course 1 -->
+<div class="course-card bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=children%2520learning%2520about%2520healthy%2520food%2520and%2520nutrition%2520in%2520a%2520bright%2520classroom%252C%2520colorful%2520fruits%2520and%2520vegetables%2520on%2520display%252C%2520educational%2520setting%252C%2520teacher%2520explaining%2520food%2520groups%252C%2520high%2520quality%252C%2520photorealistic%252C%2520soft%2520natural%2520lighting&width=600&height=400&seq=11&orientation=landscape" alt="Health and Nutrition for Kids" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Health and Nutrition for Kids</h3>
+<p class="text-gray-600 mb-4">Learn about balanced diets and healthy eating habits</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-2">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-sm text-gray-500">8 weeks</span>
+</div>
+<a href="5-Health.html" class="px-4 py-2 bg-primary text-white rounded !rounded-button text-sm font-medium whitespace-nowrap inline-block">View Course</a>
+</div>
+</div>
+</div>
+<!-- Course 2 -->
+<div class="course-card bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=child%2520learning%2520first%2520aid%2520basics%2520with%2520teacher%2520in%2520classroom%252C%2520bandaging%2520practice%252C%2520medicine%2520cabinet%2520with%2520safe%2520medications%252C%2520educational%2520setting%252C%2520high%2520quality%252C%2520photorealistic%252C%2520soft%2520natural%2520lighting&width=600&height=400&seq=12&orientation=landscape" alt="First Aid and Medicines" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">First Aid and Medicines</h3>
+<p class="text-gray-600 mb-4">Basic emergency care and understanding medicine safety</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-2">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-sm text-gray-500">6 weeks</span>
+</div>
+<a href="5-FirstAid.html" class="px-4 py-2 bg-primary text-white rounded !rounded-button text-sm font-medium whitespace-nowrap inline-block">View Course</a>
+</div>
+</div>
+</div>
+<!-- Course 3 -->
+
+<!-- Course 4 -->
+<div class="course-card bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=children%2520learning%2520empathy%2520through%2520group%2520activities%2520in%2520bright%2520classroom%252C%2520sharing%2520feelings%252C%2520understanding%2520others%2527%2520perspectives%252C%2520educational%2520setting%252C%2520caring%2520interactions%252C%2520high%2520quality%252C%2520photorealistic%252C%2520soft%2520natural%2520lighting&width=600&height=400&seq=13&orientation=landscape" alt="Emotional Intelligence Skills" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Emotional Intelligence Skills</h3>
+<p class="text-gray-600 mb-4">Develop emotional awareness and social skills</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-2">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-sm text-gray-500">8 weeks</span>
+</div>
+<a href="5-Health.html" class="px-4 py-2 bg-primary text-white rounded !rounded-button text-sm font-medium whitespace-nowrap inline-block">View Course</a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 bg-white rounded-lg shadow-md p-8">
+<div class="text-center mb-8">
+<h2 class="text-2xl font-semibold text-gray-800 mb-3">Why Choose Our Health and Wellness Courses?</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">Our courses are designed by health and education experts to help children develop essential wellness skills in a fun, engaging, and supportive environment.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="text-center">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full text-primary mx-auto mb-4">
+<i class="ri-user-star-line ri-2x"></i>
+</div>
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Expert Health Educators</h3>
+<p class="text-gray-600">Learn from experienced professionals specialized in child health, nutrition, and emotional wellbeing.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full text-primary mx-auto mb-4">
+<i class="ri-mental-health-line ri-2x"></i>
+</div>
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Practical Health Knowledge</h3>
+<p class="text-gray-600">Hands-on activities and real-world scenarios that make health education engaging and effective.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full text-primary mx-auto mb-4">
+<i class="ri-heart-pulse-line ri-2x"></i>
+</div>
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Safe Learning Environment</h3>
+<p class="text-gray-600">A supportive space where children can explore health topics and develop wellness habits at their own pace.</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-gray-50 pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<h3 class="font-['Pacifico'] text-2xl text-primary mb-4">logo</h3>
+<p class="text-gray-600 mb-4">Empowering children with essential health and wellness skills for a balanced and healthy future.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-instagram-line"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-800 mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-600 hover:text-primary">Home</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">About Us</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Courses</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Testimonials</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-800 mb-4">Contact Us</h4>
+<ul class="space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-600">Bangalore, 560001</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-600">9600071910</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-600">practicalwisdomschool5@gmail.com</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-800 mb-4">Newsletter</h4>
+<p class="text-gray-600 mb-4">Subscribe to our newsletter for the latest health tips and course updates.</p>
+<div class="flex">
+<input type="email" placeholder="Your email address" class="flex-1 px-4 py-2 rounded-l border-none focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm">
+<button class="px-4 py-2 bg-primary text-white rounded-r !rounded-button whitespace-nowrap">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-200 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-600 text-sm mb-4 md:mb-0">© 2025 Health and Wellness Courses. All rights reserved.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-600 hover:text-primary text-sm">Privacy Policy</a>
+<a href="#" class="text-gray-600 hover:text-primary text-sm">Terms of Service</a>
+<a href="#" class="text-gray-600 hover:text-primary text-sm">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+<i class="ri-arrow-up-line ri-lg"></i>
+</button>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobileMenuButton');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileCategoriesButton = document.getElementById('mobileCategoriesButton');
+const mobileCategoriesMenu = document.getElementById('mobileCategoriesMenu');
+mobileMenuButton.addEventListener('click', () => {
+mobileMenu.classList.toggle('hidden');
+});
+mobileCategoriesButton.addEventListener('click', () => {
+mobileCategoriesMenu.classList.toggle('hidden');
+});
+const backToTopButton = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+if (window.pageYOffset > 300) {
+backToTopButton.classList.remove('opacity-0', 'invisible');
+backToTopButton.classList.add('opacity-100', 'visible');
+} else {
+backToTopButton.classList.remove('opacity-100', 'visible');
+backToTopButton.classList.add('opacity-0', 'invisible');
+}
+});
+backToTopButton.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+});
+</script>
+</body>
+</html>

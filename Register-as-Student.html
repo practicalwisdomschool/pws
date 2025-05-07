@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register as Student - Practical Wisdom School</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4F46E5',secondary:'#818CF8'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+background-color: #f9fafb;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type="number"] {
+    appearance: textfield;
+    -webkit-appearance: none;
+}
+
+.custom-checkbox {
+position: relative;
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.checkmark {
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #4F46E5;
+border-color: #4F46E5;
+}
+.checkmark:after {
+content: "";
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+margin-bottom: 2px;
+}
+.custom-radio {
+position: relative;
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+.custom-radio input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.radiomark {
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #d1d5db;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.custom-radio input:checked ~ .radiomark {
+border-color: #4F46E5;
+}
+.radiomark:after {
+content: "";
+display: none;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: #4F46E5;
+}
+.custom-radio input:checked ~ .radiomark:after {
+display: block;
+}
+.success-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 1000;
+align-items: center;
+justify-content: center;
+}
+.success-content {
+background-color: white;
+padding: 2rem;
+border-radius: 8px;
+max-width: 500px;
+width: 90%;
+text-align: center;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.checkmark-circle {
+width: 80px;
+height: 80px;
+position: relative;
+display: inline-block;
+vertical-align: top;
+margin-bottom: 1rem;
+}
+.checkmark-circle .background {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+background: #4F46E5;
+position: absolute;
+}
+.checkmark-circle .checkmark {
+border-radius: 0;
+width: 40px;
+height: 80px;
+background-color: transparent;
+border: none;
+transform-origin: left top;
+border-right: 15px solid white;
+border-top: 15px solid white;
+border-left: 0;
+border-bottom: 0;
+content: '';
+position: absolute;
+top: 40px;
+left: 17px;
+transform: scaleX(-1) rotate(135deg);
+}
+.custom-file-upload {
+position: relative;
+overflow: hidden;
+display: inline-block;
+cursor: pointer;
+}
+.custom-file-upload input[type="file"] {
+position: absolute;
+left: 0;
+top: 0;
+opacity: 0;
+cursor: pointer;
+width: 100%;
+height: 100%;
+}
+.photo-preview {
+width: 120px;
+height: 120px;
+border: 2px dashed #d1d5db;
+border-radius: 8px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+background-color: #f9fafb;
+}
+.photo-preview img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: none;
+}
+</style>
+</head>
+<body>
+<div class="min-h-screen flex flex-col">
+<header class="bg-white shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+<div class="flex items-center">
+<h1 class="text-2xl font-['Pacifico'] text-primary">logo</h1>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a href="" data-readdy="true" class="text-gray-600 hover:text-primary transition-colors">Home</a>
+</nav>
+<div class="md:hidden">
+<button type="button" class="w-10 h-10 flex items-center justify-center !rounded-button">
+<i class="ri-menu-line text-gray-600 ri-lg"></i>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow py-12">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-white shadow-md rounded-lg p-6 md:p-8">
+<div class="text-center mb-8">
+<h2 class="text-3xl font-bold text-gray-900">Join Our Learning Adventure!</h2>
+<p class="mt-2 text-gray-600">We're excited to welcome you to our community. Please fill in your details to get started.</p>
+</div>
+<form id="studentRegistrationForm">
+<!-- Personal Details -->
+<div class="mb-8 bg-indigo-50 rounded-lg p-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-indigo-100">Personal Details</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2">
+<div class="mb-5">
+<label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name <span class="text-red-500">*</span></label>
+<input type="text" id="fullName" name="fullName" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your full name">
+</div>
+<div class="mb-5">
+<label for="dateOfBirth" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth <span class="text-red-500">*</span></label>
+<input type="date" id="dateOfBirth" name="dateOfBirth" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm">
+</div>
+<div class="mb-5">
+<label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender <span class="text-red-500">*</span></label>
+<div class="relative">
+<select id="gender" name="gender" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors appearance-none text-sm pr-8">
+<option value="" disabled selected>Select gender</option>
+<option value="male">Male</option>
+<option value="female">Female</option>
+<option value="other">Other</option>
+<option value="preferNotToSay">Prefer not to say</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+<div class="mb-5">
+<label for="nationality" class="block text-sm font-medium text-gray-700 mb-1">Nationality <span class="text-red-500">*</span></label>
+<input type="text" id="nationality" name="nationality" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your nationality">
+</div>
+</div>
+<div class="flex flex-col items-center">
+<label class="block text-sm font-medium text-gray-700 mb-3 self-start">Photo Upload</label>
+<div class="photo-preview" id="photoPreviewContainer">
+<img id="photoPreview" src="#" alt="Preview">
+<div id="uploadIcon" class="flex flex-col items-center justify-center">
+<div class="w-10 h-10 flex items-center justify-center bg-indigo-100 rounded-full mb-2">
+<i class="ri-camera-line text-primary ri-lg"></i>
+</div>
+<span class="text-xs text-gray-500">Upload photo</span>
+</div>
+</div>
+<label class="custom-file-upload mt-3">
+<input type="file" id="photoUpload" name="photoUpload" accept="image/*">
+<span class="px-4 py-2 bg-white border border-gray-300 rounded text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Choose File</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Student Details -->
+<div class="mb-8 bg-blue-50 rounded-lg p-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-blue-100">Student Details</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label for="grade" class="block text-sm font-medium text-gray-700 mb-1">Grade/Class <span class="text-red-500">*</span></label>
+<div class="relative">
+<select id="grade" name="grade" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors appearance-none text-sm pr-8">
+<option value="" disabled selected>Select grade</option>
+<option value="1">Grade 1</option>
+<option value="2">Grade 2</option>
+<option value="3">Grade 3</option>
+<option value="4">Grade 4</option>
+<option value="5">Grade 5</option>
+<option value="6">Grade 6</option>
+<option value="7">Grade 7</option>
+<option value="8">Grade 8</option>
+<option value="9">Grade 9</option>
+<option value="10">Grade 10</option>
+<option value="11">Grade 11</option>
+<option value="12">Grade 12</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+<div>
+<label for="schoolName" class="block text-sm font-medium text-gray-700 mb-1">School Name <span class="text-red-500">*</span></label>
+<input type="text" id="schoolName" name="schoolName" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your school name">
+</div>
+<div>
+<label for="preferredCourse" class="block text-sm font-medium text-gray-700 mb-1">Preferred Course <span class="text-red-500">*</span></label>
+<div class="relative">
+<select id="preferredCourse" name="preferredCourse" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors appearance-none text-sm pr-8">
+<option value="" disabled selected>Select course</option>
+<option value="mathematics">Mathematics</option>
+<option value="science">Science</option>
+<option value="english">English</option>
+<option value="history">History</option>
+<option value="computerScience">Computer Science</option>
+<option value="art">Art & Design</option>
+<option value="music">Music</option>
+<option value="physicalEducation">Physical Education</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+<div class="md:col-span-2">
+<label for="interests" class="block text-sm font-medium text-gray-700 mb-1">Special Interests or Hobbies</label>
+<textarea id="interests" name="interests" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Tell us about your interests and hobbies"></textarea>
+</div>
+</div>
+</div>
+<!-- Parent/Guardian Details -->
+<div class="mb-8 bg-green-50 rounded-lg p-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-green-100">Parent/Guardian Details</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label for="parentName" class="block text-sm font-medium text-gray-700 mb-1">Parent/Guardian Name <span class="text-red-500">*</span></label>
+<input type="text" id="parentName" name="parentName" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter parent/guardian name">
+</div>
+<div>
+<label for="relationship" class="block text-sm font-medium text-gray-700 mb-1">Relationship to Student <span class="text-red-500">*</span></label>
+<div class="relative">
+<select id="relationship" name="relationship" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors appearance-none text-sm pr-8">
+<option value="" disabled selected>Select relationship</option>
+<option value="mother">Mother</option>
+<option value="father">Father</option>
+<option value="grandparent">Grandparent</option>
+<option value="sibling">Sibling</option>
+<option value="aunt">Aunt</option>
+<option value="uncle">Uncle</option>
+<option value="legalGuardian">Legal Guardian</option>
+<option value="other">Other</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+<div>
+<label for="parentPhone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
+<input type="tel" id="parentPhone" name="parentPhone" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="(123) 456-7890">
+</div>
+<div>
+<label for="parentEmail" class="block text-sm font-medium text-gray-700 mb-1">Email ID <span class="text-red-500">*</span></label>
+<input type="email" id="parentEmail" name="parentEmail" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="email@example.com">
+</div>
+<div class="md:col-span-2">
+<label for="address" class="block text-sm font-medium text-gray-700 mb-1">Residential Address <span class="text-red-500">*</span></label>
+<textarea id="address" name="address" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your complete address"></textarea>
+</div>
+</div>
+</div>
+<!-- Emergency Contact -->
+<div class="mb-8 bg-amber-50 rounded-lg p-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-amber-100">Emergency Contact</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label for="emergencyName" class="block text-sm font-medium text-gray-700 mb-1">Alternative Contact Name <span class="text-red-500">*</span></label>
+<input type="text" id="emergencyName" name="emergencyName" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter emergency contact name">
+</div>
+<div>
+<label for="emergencyPhone" class="block text-sm font-medium text-gray-700 mb-1">Alternative Phone Number <span class="text-red-500">*</span></label>
+<input type="tel" id="emergencyPhone" name="emergencyPhone" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="(123) 456-7890">
+</div>
+<div class="md:col-span-2">
+<label for="emergencyRelationship" class="block text-sm font-medium text-gray-700 mb-1">Relationship to Student <span class="text-red-500">*</span></label>
+<div class="relative">
+<select id="emergencyRelationship" name="emergencyRelationship" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors appearance-none text-sm pr-8">
+<option value="" disabled selected>Select relationship</option>
+<option value="mother">Mother</option>
+<option value="father">Father</option>
+<option value="grandparent">Grandparent</option>
+<option value="sibling">Sibling</option>
+<option value="aunt">Aunt</option>
+<option value="uncle">Uncle</option>
+<option value="neighbor">Neighbor</option>
+<option value="friend">Family Friend</option>
+<option value="other">Other</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Terms and Submit -->
+<div class="mb-8">
+<div class="mb-5">
+<label class="custom-checkbox flex items-start">
+<input type="checkbox" id="termsAgree" name="termsAgree" required>
+<span class="checkmark mt-0.5 mr-2"></span>
+<span class="text-sm text-gray-700">I agree to the <a href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a></span>
+</label>
+</div>
+<div class="flex flex-col items-center space-y-6">
+<a href="Post-Login-Landing.html" data-readdy="true">
+<button type="submit" id="submitRegistration" class="px-8 py-3 bg-primary text-white font-medium text-base rounded shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Join Now</button>
+</a>
+<div class="flex items-center space-x-6 text-sm">
+<a href="Login-Page.html" data-readdy="true" class="text-gray-600 hover:text-primary transition-colors">Already signed up? Login</a>
+<div class="h-4 w-px bg-gray-300"></div>
+<a href="Register-as-a-School.html" data-readdy="true" class="text-gray-600 hover:text-primary transition-colors">Register as a school</a>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</main>
+<footer class="bg-gray-800 text-white py-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<h3 class="text-lg font-semibold mb-4">Practical Wisdom School</h3>
+<p class="text-gray-300 text-sm">Empowering students with knowledge and practical skills for a brighter future.</p>
+</div>
+<div>
+<h4 class="text-base font-medium mb-4">Quick Links</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Programs</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Resources</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-base font-medium mb-4">Support</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Help Center</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">FAQs</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-base font-medium mb-4">Connect With Us</h4>
+<div class="flex space-x-4 mb-4">
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+<i class="ri-facebook-fill text-white"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+<i class="ri-twitter-fill text-white"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+<i class="ri-instagram-fill text-white"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill text-white"></i>
+</a>
+</div>
+<p class="text-sm text-gray-300">Email: info@practicalwisdom.edu</p>
+<p class="text-sm text-gray-300">Phone: (123) 456-7890</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-300">
+<p>© 2025 Practical Wisdom School. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+<!-- Success Modal -->
+<div class="success-modal" id="successModal">
+<div class="success-content">
+<div class="checkmark-circle">
+<div class="background"></div>
+<div class="checkmark"></div>
+</div>
+<h3 class="text-2xl font-bold text-gray-900 mb-2">Welcome Aboard!</h3>
+<p class="text-gray-600 mb-4">Your registration has been successfully submitted.</p>
+<p class="text-gray-600 mb-6">We're excited to have you join our learning community! Our team will review your information and contact you soon.</p>
+<button id="closeModal" class="px-6 py-2 bg-primary text-white font-medium rounded shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Close</button>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Photo upload preview
+const photoUpload = document.getElementById('photoUpload');
+const photoPreview = document.getElementById('photoPreview');
+const uploadIcon = document.getElementById('uploadIcon');
+photoUpload.addEventListener('change', function() {
+const file = this.files[0];
+if (file) {
+const reader = new FileReader();
+reader.onload = function(e) {
+photoPreview.src = e.target.result;
+photoPreview.style.display = 'block';
+uploadIcon.style.display = 'none';
+}
+reader.readAsDataURL(file);
+}
+});
+// Set minimum and maximum date for date of birth
+const today = new Date();
+const minDate = new Date();
+minDate.setFullYear(today.getFullYear() - 25); // Minimum age 25 years
+const maxDate = new Date();
+maxDate.setFullYear(today.getFullYear() - 3); // Maximum age 3 years
+const minDateFormatted = minDate.toISOString().split('T')[0];
+const maxDateFormatted = maxDate.toISOString().split('T')[0];
+document.getElementById('dateOfBirth').setAttribute('min', minDateFormatted);
+document.getElementById('dateOfBirth').setAttribute('max', maxDateFormatted);
+// Phone number validation
+function validatePhone(input) {
+const phonePattern = /^[\d\s\-\(\)]+$/;
+if (!phonePattern.test(input.value) && input.value !== '') {
+input.setCustomValidity('Please enter a valid phone number');
+} else {
+input.setCustomValidity('');
+}
+}
+const phoneInputs = document.querySelectorAll('input[type="tel"]');
+phoneInputs.forEach(input => {
+input.addEventListener('input', function() {
+validatePhone(this);
+});
+});
+// Email validation
+function validateEmail(input) {
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailPattern.test(input.value) && input.value !== '') {
+input.setCustomValidity('Please enter a valid email address');
+} else {
+input.setCustomValidity('');
+}
+}
+const emailInput = document.getElementById('parentEmail');
+emailInput.addEventListener('input', function() {
+validateEmail(this);
+});
+// Form submission
+const form = document.getElementById('studentRegistrationForm');
+const successModal = document.getElementById('successModal');
+const closeModalBtn = document.getElementById('closeModal');
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+// Validate form
+if (form.checkValidity()) {
+// Show success modal
+successModal.style.display = 'flex';
+// Create confetti effect
+createConfetti();
+} else {
+// Trigger browser's native validation UI
+form.reportValidity();
+}
+});
+closeModalBtn.addEventListener('click', function() {
+successModal.style.display = 'none';
+});
+// Simple confetti effect
+function createConfetti() {
+const confettiCount = 100;
+const container = document.body;
+for (let i = 0; i < confettiCount; i++) {
+const confetti = document.createElement('div');
+confetti.style.position = 'fixed';
+confetti.style.width = '10px';
+confetti.style.height = '10px';
+confetti.style.backgroundColor = getRandomColor();
+confetti.style.borderRadius = '50%';
+confetti.style.left = Math.random() * 100 + 'vw';
+confetti.style.top = '-10px';
+confetti.style.zIndex = '1001';
+confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+container.appendChild(confetti);
+const animation = confetti.animate(
+[
+{ transform: 'translate3d(0, 0, 0)', opacity: 1 },
+{ transform: 'translate3d(' + (Math.random() * 100 - 50) + 'px, ' + window.innerHeight + 'px, 0)', opacity: 0 }
+],
+{
+duration: Math.random() * 3000 + 2000,
+easing: 'cubic-bezier(0, .9, .57, 1)',
+delay: Math.random() * 2000
+}
+);
+animation.onfinish = function() {
+confetti.remove();
+};
+}
+}
+function getRandomColor() {
+const colors = ['#4F46E5', '#818CF8', '#60A5FA', '#34D399', '#FBBF24'];
+return colors[Math.floor(Math.random() * colors.length)];
+}
+});
+</script>
+</body>
+</html>

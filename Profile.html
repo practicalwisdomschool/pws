@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile | Practical Wisdom School</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4A90E2',secondary:'#F5A623'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Nunito', sans-serif;
+background-color: #f8fafc;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.progress-bar {
+height: 8px;
+background-color: #e2e8f0;
+border-radius: 4px;
+overflow: hidden;
+}
+.progress-bar-fill {
+height: 100%;
+border-radius: 4px;
+}
+</style>
+</head>
+<body>
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<div class="hidden md:flex flex-col w-64 bg-white border-r border-gray-200 shadow-sm">
+<div class="p-6 border-b border-gray-200">
+<h1 class="font-['Pacifico'] text-2xl text-primary">logo</h1>
+</div>
+<nav class="flex-1 pt-6">
+<div class="px-4 mb-8">
+<h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">MENU</h2>
+<ul>
+<li class="mb-2">
+<a href="Post-Login-Landing.html" data-readdy="true" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-home-line text-gray-500"></i>
+</div>
+<span>Home</span>
+</a>
+</li>
+<li class="mb-2">
+<a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-primary bg-blue-50 rounded-lg">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-user-line text-primary"></i>
+</div>
+<span>Profile</span>
+</a>
+</li>
+<li class="mb-2">
+<a href="#courses" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-book-open-line text-gray-500"></i>
+</div>
+<span>My Courses</span>
+</a>
+</li>
+<li class="mb-2">
+<a href="#demos" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-calendar-line text-gray-500"></i>
+</div>
+<span>My Demo Classes</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="px-4">
+<h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">SUPPORT</h2>
+<ul>
+<li class="mb-2">
+<a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-question-line text-gray-500"></i>
+</div>
+<span>Help Center</span>
+</a>
+</li>
+<li class="mb-2">
+<a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-message-2-line text-gray-500"></i>
+</div>
+<span>Contact Us</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<div class="p-4 border-t border-gray-200">
+<a href="Landing-1.html" data-readdy="true" class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-red-600 bg-white border border-red-200 rounded-button hover:bg-red-50 whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-logout-box-line"></i>
+</div>
+<span>Sign Out</span>
+</a>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 overflow-auto">
+<header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-10">
+<div class="flex items-center justify-between px-6 py-4">
+<div class="md:hidden">
+<h1 class="font-['Pacifico'] text-xl text-primary">logo</h1>
+</div>
+<div class="flex items-center ml-auto">
+<div class="relative">
+<button class="flex items-center text-gray-700 focus:outline-none">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-2">
+<i class="ri-notification-3-line text-primary"></i>
+</div>
+</button>
+</div>
+<div class="ml-4 relative">
+<button class="flex items-center focus:outline-none">
+<img class="h-9 w-9 rounded-full object-cover" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%2010%20year%20old%20boy%20with%20brown%20hair%20and%20blue%20eyes%2C%20school%20uniform%2C%20friendly%20smile%2C%20bright%20background%2C%20professional%20photography%2C%20studio%20lighting%2C%20high%20quality&width=200&height=200&seq=1&orientation=squarish" alt="User avatar">
+<span class="ml-2 text-sm font-medium text-gray-700 hidden md:block">Oliver Thompson</span>
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="p-6">
+<!-- Profile Header -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+<div class="flex flex-col md:flex-row items-center">
+<div class="relative mb-4 md:mb-0 md:mr-6">
+<img class="h-24 w-24 rounded-full object-cover border-4 border-white shadow" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%2010%20year%20old%20boy%20with%20brown%20hair%20and%20blue%20eyes%2C%20school%20uniform%2C%20friendly%20smile%2C%20bright%20background%2C%20professional%20photography%2C%20studio%20lighting%2C%20high%20quality&width=200&height=200&seq=1&orientation=squarish" alt="User avatar">
+<button class="absolute bottom-0 right-0 bg-primary text-white rounded-full p-1 shadow-md">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-camera-line"></i>
+</div>
+</button>
+</div>
+<div class="text-center md:text-left flex-1">
+<h1 class="text-2xl font-bold text-gray-800">Oliver Thompson</h1>
+<div class="flex flex-col md:flex-row items-center mt-2 text-gray-600 text-sm">
+<div class="flex items-center mb-2 md:mb-0 md:mr-4">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<span>oliver.thompson@example.com</span>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<span>+1 (555) 123-4567</span>
+</div>
+</div>
+</div>
+<button class="mt-4 md:mt-0 px-4 py-2 bg-primary text-white rounded-button hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 flex items-center whitespace-nowrap">
+<div class="w-4 h-4 flex items-center justify-center mr-2">
+<i class="ri-edit-line"></i>
+</div>
+<span>Edit Profile</span>
+</button>
+</div>
+</div>
+<!-- Personal Information -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold text-gray-800">Personal Information</h2>
+<button class="text-primary hover:text-blue-700 text-sm font-medium flex items-center">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-edit-line"></i>
+</div>
+<span>Edit</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<div class="mb-4">
+<h3 class="text-sm font-medium text-gray-500 mb-1">Full Name</h3>
+<p class="text-gray-800">Oliver Thompson</p>
+</div>
+<div class="mb-4">
+<h3 class="text-sm font-medium text-gray-500 mb-1">Date of Birth</h3>
+<p class="text-gray-800">May 12, 2015</p>
+</div>
+<div class="mb-4">
+<h3 class="text-sm font-medium text-gray-500 mb-1">Gender</h3>
+<p class="text-gray-800">Male</p>
+</div>
+<div class="mb-4">
+<h3 class="text-sm font-medium text-gray-500 mb-1">Parent/Guardian Name</h3>
+<p class="text-gray-800">Emily Thompson</p>
+</div>
+</div>
+<div>
+<div class="mb-4">
+<h3 class="text-sm font-medium text-gray-500 mb-1">Address</h3>
+<p class="text-gray-800">123 Maple Street, Boston, MA, United States</p>
+</div>
+<div class="mb-4">
+<h3 class="text-sm font-medium text-gray-500 mb-1">Contact Number</h3>
+<p class="text-gray-800">+1 (555) 123-4567</p>
+</div>
+<div class="mb-4">
+<h3 class="text-sm font-medium text-gray-500 mb-1">Email Address</h3>
+<p class="text-gray-800">oliver.thompson@example.com</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<h3 class="text-sm font-medium text-gray-500 mb-1">School Name</h3>
+<p class="text-gray-800">Riverside Elementary</p>
+</div>
+<div>
+<h3 class="text-sm font-medium text-gray-500 mb-1">Grade/Class Level</h3>
+<p class="text-gray-800">Grade 4</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- My Courses -->
+<div id="courses" class="mb-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold text-gray-800">My Courses</h2>
+<a href="#" class="text-primary hover:text-blue-700 text-sm font-medium flex items-center">
+<span>View All</span>
+<div class="w-4 h-4 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Course 1 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+<div class="relative h-40">
+<img src="https://readdy.ai/api/search-image?query=colorful%20classroom%20with%20children%20learning%20about%20emotional%20intelligence%2C%20bright%20and%20cheerful%20environment%2C%20educational%20posters%20on%20walls%2C%20children%20engaged%20in%20group%20activities%2C%20professional%20photography%2C%20high%20quality&width=400&height=250&seq=2&orientation=landscape" alt="Emotional Intelligence for Kids" class="w-full h-full object-cover">
+<div class="absolute top-3 left-3 bg-blue-500 text-white text-xs font-medium px-2 py-1 rounded-full">Life Skills</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-1">Emotional Intelligence for Kids</h3>
+<div class="flex items-center text-sm text-gray-500 mb-3">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+<span>Enrolled: April 10, 2025</span>
+</div>
+<div class="mb-3">
+<div class="flex justify-between text-xs mb-1">
+<span class="font-medium text-gray-600">Progress</span>
+<span class="font-medium text-primary">75%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-bar-fill bg-primary" style="width: 75%"></div>
+</div>
+</div>
+<div class="flex flex-col space-y-2">
+<button class="w-full px-4 py-2 bg-primary text-white rounded-button hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 whitespace-nowrap">Continue Learning</button>
+<a href="#" class="text-center text-primary text-sm font-medium hover:text-blue-700">View Details</a>
+</div>
+</div>
+</div>
+<!-- Course 2 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+<div class="relative h-40">
+<img src="https://readdy.ai/api/search-image?query=children%20learning%20about%20coding%20and%20robotics%2C%20colorful%20classroom%20with%20computers%20and%20robots%2C%20kids%20engaged%20in%20technology%20learning%2C%20professional%20photography%2C%20bright%20lighting%2C%20educational%20environment%2C%20high%20quality&width=400&height=250&seq=3&orientation=landscape" alt="Coding Fundamentals for Kids" class="w-full h-full object-cover">
+<div class="absolute top-3 left-3 bg-green-500 text-white text-xs font-medium px-2 py-1 rounded-full">Tech</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-1">Coding Fundamentals for Kids</h3>
+<div class="flex items-center text-sm text-gray-500 mb-3">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+<span>Enrolled: March 15, 2025</span>
+</div>
+<div class="mb-3">
+<div class="flex justify-between text-xs mb-1">
+<span class="font-medium text-gray-600">Progress</span>
+<span class="font-medium text-primary">45%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-bar-fill bg-primary" style="width: 45%"></div>
+</div>
+</div>
+<div class="flex flex-col space-y-2">
+<button class="w-full px-4 py-2 bg-primary text-white rounded-button hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 whitespace-nowrap">Continue Learning</button>
+<a href="#" class="text-center text-primary text-sm font-medium hover:text-blue-700">View Details</a>
+</div>
+</div>
+</div>
+<!-- Course 3 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+<div class="relative h-40">
+<img src="https://readdy.ai/api/search-image?query=children%20in%20art%20class%2C%20creative%20environment%20with%20paints%20and%20canvases%2C%20colorful%20art%20supplies%2C%20kids%20creating%20artwork%2C%20bright%20classroom%20setting%2C%20professional%20photography%2C%20high%20quality&width=400&height=250&seq=4&orientation=landscape" alt="Creative Arts & Expression" class="w-full h-full object-cover">
+<div class="absolute top-3 left-3 bg-purple-500 text-white text-xs font-medium px-2 py-1 rounded-full">Arts</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-1">Creative Arts & Expression</h3>
+<div class="flex items-center text-sm text-gray-500 mb-3">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+<span>Enrolled: April 22, 2025</span>
+</div>
+<div class="mb-3">
+<div class="flex justify-between text-xs mb-1">
+<span class="font-medium text-gray-600">Progress</span>
+<span class="font-medium text-primary">20%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-bar-fill bg-primary" style="width: 20%"></div>
+</div>
+</div>
+<div class="flex flex-col space-y-2">
+<button class="w-full px-4 py-2 bg-primary text-white rounded-button hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 whitespace-nowrap">Continue Learning</button>
+<a href="#" class="text-center text-primary text-sm font-medium hover:text-blue-700">View Details</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Demo Classes -->
+<div id="demos">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold text-gray-800">My Demo Classes</h2>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+<div class="flex items-center justify-center flex-col py-8">
+<div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+<i class="ri-calendar-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-lg font-semibold text-gray-800 mb-2">No Demo Classes Booked</h3>
+<p class="text-gray-600 text-center mb-4">You haven't booked any demo classes yet. Explore our classes and book a free demo.</p>
+<button class="px-6 py-2 bg-primary text-white rounded-button hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 whitespace-nowrap">
+Browse Classes
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<!-- Mobile Navigation -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-10">
+<div class="flex justify-around items-center py-2">
+<a href="Post-Login-Landing.html" data-readdy="true" class="flex flex-col items-center p-2 text-gray-500">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-home-line"></i>
+</div>
+<span class="text-xs mt-1">Home</span>
+</a>
+<a href="#" class="flex flex-col items-center p-2 text-primary">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-user-line"></i>
+</div>
+<span class="text-xs mt-1">Profile</span>
+</a>
+<a href="#" class="flex flex-col items-center p-2 text-gray-500">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-book-open-line"></i>
+</div>
+<span class="text-xs mt-1">Courses</span>
+</a>
+<a href="#" class="flex flex-col items-center p-2 text-gray-500">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-calendar-line"></i>
+</div>
+<span class="text-xs mt-1">Demos</span>
+</a>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>

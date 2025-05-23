@@ -163,7 +163,7 @@ transform: scaleX(-1) rotate(135deg);
 <h1 class="text-2xl font-['Pacifico'] text-primary">logo</h1>
 </div>
 <nav class="hidden md:flex space-x-8">
-<a href="index.html" data-readdy="true" class="text-gray-600 hover:text-primary transition-colors">Home</a>
+<a href="index.html" class="text-gray-600 hover:text-primary transition-colors">Home</a>
 <a href="#" class="text-gray-600 hover:text-primary transition-colors">About</a>
 <a href="#" class="text-gray-600 hover:text-primary transition-colors">Programs</a>
 <a href="#" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
@@ -188,29 +188,29 @@ transform: scaleX(-1) rotate(135deg);
 <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">Basic School Information</h3>
 <div class="mb-5">
 <label for="schoolName" class="block text-sm font-medium text-gray-700 mb-1">School Name <span class="text-red-500">*</span></label>
-<input type="text" id="schoolName" name="schoolName" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your school name">
+<input type="text" id="schoolName" name="schoolName"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your school name">
 </div>
 <div class="mb-5">
 <label class="block text-sm font-medium text-gray-700 mb-1">School Address <span class="text-red-500">*</span></label>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div class="col-span-2">
-<input type="text" id="streetAddress" name="streetAddress" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Street Address">
+<input type="text" id="streetAddress" name="streetAddress"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Street Address">
 </div>
 <div>
-<input type="text" id="city" name="city" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="City">
+<input type="text" id="city" name="city"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="City">
 </div>
 <div>
-<input type="text" id="state" name="state" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="State/Province">
+<input type="text" id="state" name="state"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="State/Province">
 </div>
 <div class="md:col-span-2">
-<input type="text" id="postalCode" name="postalCode" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Postal/Zip Code">
+<input type="text" id="postalCode" name="postalCode"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Postal/Zip Code">
 </div>
 </div>
 </div>
 <div class="mb-5">
 <label for="schoolType" class="block text-sm font-medium text-gray-700 mb-1">Type of School <span class="text-red-500">*</span></label>
 <div class="relative">
-<select id="schoolType" name="schoolType" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors appearance-none text-sm pr-8">
+<select id="schoolType" name="schoolType"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors appearance-none text-sm pr-8">
 <option value="" disabled selected>Select school type</option>
 <option value="public">Public School</option>
 <option value="private">Private School</option>
@@ -236,27 +236,27 @@ transform: scaleX(-1) rotate(135deg);
 <label class="block text-sm font-medium text-gray-700 mb-3">Point of Contact <span class="text-red-500">*</span></label>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
 <label class="custom-radio">
-<input type="radio" name="contactRole" value="principal" checked>
+<input type="radio" name="contactRole" value="principal" checked    >
 <span class="radiomark mr-2"></span>
 <span>Principal</span>
 </label>
 <label class="custom-radio">
-<input type="radio" name="contactRole" value="counselor">
+<input type="radio" name="contactRole" value="counselor"    >
 <span class="radiomark mr-2"></span>
 <span>Counselor</span>
 </label>
 <label class="custom-radio">
-<input type="radio" name="contactRole" value="headOfDepartment">
+<input type="radio" name="contactRole" value="headOfDepartment"    >
 <span class="radiomark mr-2"></span>
 <span>Head of Department</span>
 </label>
 <label class="custom-radio">
-<input type="radio" name="contactRole" value="teacher">
+<input type="radio" name="contactRole" value="teacher"    >
 <span class="radiomark mr-2"></span>
 <span>Teacher/Coordinator</span>
 </label>
 <label class="custom-radio col-span-1 sm:col-span-2">
-<input type="radio" name="contactRole" value="other" id="otherRole">
+<input type="radio" name="contactRole" value="other" id="otherRole"    >
 <span class="radiomark mr-2"></span>
 <span>Other</span>
 </label>
@@ -267,15 +267,15 @@ transform: scaleX(-1) rotate(135deg);
 </div>
 <div class="mb-5">
 <label for="contactName" class="block text-sm font-medium text-gray-700 mb-1">Name of Point of Contact <span class="text-red-500">*</span></label>
-<input type="text" id="contactName" name="contactName" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Full name">
+<input type="text" id="contactName" name="contactName"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Full name">
 </div>
 <div class="mb-5">
 <label for="contactEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
-<input type="email" id="contactEmail" name="contactEmail" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="email@school.edu">
+<input type="email" id="contactEmail" name="contactEmail"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="email@school.edu">
 </div>
 <div class="mb-5">
 <label for="contactPhone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
-<input type="tel" id="contactPhone" name="contactPhone" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="(123) 456-7890">
+<input type="tel" id="contactPhone" name="contactPhone"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="(123) 456-7890">
 </div>
 </div>
 <!-- Program Details -->
@@ -284,7 +284,7 @@ transform: scaleX(-1) rotate(135deg);
 <div class="mb-5">
 <label for="studentCount" class="block text-sm font-medium text-gray-700 mb-1">Number of Students to Register <span class="text-red-500">*</span></label>
 <div class="relative">
-<input type="number" id="studentCount" name="studentCount" min="1" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter number of students">
+<input type="number" id="studentCount" name="studentCount" min="1"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter number of students">
 <div class="absolute inset-y-0 right-0 flex">
 <button type="button" id="decrementStudents" class="px-2 border-l border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700 !rounded-button">
 <i class="ri-subtract-line"></i>
@@ -299,7 +299,7 @@ transform: scaleX(-1) rotate(135deg);
 <label class="block text-sm font-medium text-gray-700 mb-3">Classes to Register <span class="text-red-500">*</span></label>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
 <label class="custom-checkbox">
-<input type="checkbox" name="classes" value="mathematics" required>
+<input type="checkbox" name="classes" value="mathematics"    >
 <span class="checkmark mr-2"></span>
 <span>Mathematics</span>
 </label>
@@ -342,7 +342,7 @@ transform: scaleX(-1) rotate(135deg);
 </div>
 <div class="mb-5">
 <label for="startDate" class="block text-sm font-medium text-gray-700 mb-1">Preferred Start Date <span class="text-red-500">*</span></label>
-<input type="date" id="startDate" name="startDate" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm">
+<input type="date" id="startDate" name="startDate"     class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm">
 </div>
 <div class="mb-5">
 <label for="additionalNotes" class="block text-sm font-medium text-gray-700 mb-1">Additional Notes/Requests <span class="text-gray-400 text-xs">(Optional)</span></label>
@@ -350,7 +350,7 @@ transform: scaleX(-1) rotate(135deg);
 </div>
 <div class="mb-5">
 <label class="custom-checkbox flex items-start">
-<input type="checkbox" id="termsAgree" name="termsAgree" required>
+<input type="checkbox" id="termsAgree" name="termsAgree"    >
 <span class="checkmark mt-0.5 mr-2"></span>
 <span class="text-sm text-gray-700">I agree to the <a href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a></span>
 </label>
@@ -358,12 +358,8 @@ transform: scaleX(-1) rotate(135deg);
 </div>
 <!-- Buttons -->
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-<a href="Post-Login-Landing.html" data-readdy="true">
-<button type="button" class="px-6 py-3 bg-primary text-white font-medium text-sm rounded shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Submit Registration</button>
-</a>
+<button type="submit" class="px-6 py-3 bg-primary text-white font-medium text-sm rounded shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Submit Registration</button>
 <button type="button" id="bookDemo" class="px-6 py-3 border border-primary text-primary font-medium text-sm rounded shadow-sm hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Book a Demo Class</button>
-<!-- Admin button will only be visible when logged in -->
-<button type="button" id="viewResponses" style="display: none;" class="px-6 py-3 border border-primary text-primary font-medium text-sm rounded shadow-sm hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">View Responses</button>
 </div>
 </form>
 </div>
@@ -420,45 +416,7 @@ transform: scaleX(-1) rotate(135deg);
 </div>
 </footer>
 </div>
-<!-- Responses Modal -->
-<div class="success-modal" id="responsesModal">
-<div class="success-content max-w-4xl w-11/12 p-0">
-<div class="bg-primary p-4 rounded-t-lg">
-<div class="flex justify-between items-center">
-<h3 class="text-xl font-semibold text-white">Registration Responses</h3>
-<button id="closeResponsesModal" class="text-white hover:text-gray-200">
-<i class="ri-close-line ri-lg"></i>
-</button>
-</div>
-</div>
-<div class="p-4 overflow-x-auto max-h-[70vh]">
-<table class="min-w-full bg-white" id="responsesTable">
-<thead class="bg-gray-50">
-<tr>
-<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Date</th>
-<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">School Name</th>
-<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Contact Name</th>
-<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Email</th>
-<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Phone</th>
-<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Students</th>
-<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Classes</th>
-<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Start Date</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-gray-200" id="responsesTableBody">
-</tbody>
-</table>
-</div>
-<div class="p-4 bg-gray-50 rounded-b-lg flex justify-between items-center">
-<button id="clearResponses" class="px-4 py-2 text-red-600 hover:text-red-700 font-medium text-sm focus:outline-none">
-Clear All Data
-</button>
-<button id="downloadExcel" class="px-4 py-2 bg-primary text-white font-medium text-sm rounded shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button">
-Download Excel
-</button>
-</div>
-</div>
-</div>
+
 <!-- Success Modal -->
 <div class="success-modal" id="successModal">
 <div class="success-content">
@@ -466,182 +424,151 @@ Download Excel
 <div class="background"></div>
 <div class="checkmark"></div>
 </div>
-<h3 class="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
-<p class="text-gray-600 mb-4">Your school registration has been successfully submitted.</p>
-<p class="text-gray-600 mb-6">Our team will review your information and contact you within 2 business days to discuss next steps.</p>
+<h3 class="text-2xl font-bold text-gray-900 mb-2">Welcome Aboard!</h3>
+<p class="text-gray-600 mb-4">Your registration has been successfully submitted.</p>
+<p class="text-gray-600 mb-6">We're excited to have you join our learning community! Our team will review your information and contact you soon.</p>
 <button id="closeModal" class="px-6 py-2 bg-primary text-white font-medium rounded shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Close</button>
 </div>
 </div>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-const adminPassword = '123456'; // This should be replaced with secure authentication
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('schoolRegistrationForm');
+  const successModal = document.getElementById('successModal');
+  const closeModalBtn = document.getElementById('closeModal');
+  const incrementBtn = document.getElementById('incrementStudents');
+  const decrementBtn = document.getElementById('decrementStudents');
+  const studentCountInput = document.getElementById('studentCount');
+  const otherRoleRadio = document.getElementById('otherRole');
+  const otherRoleField = document.getElementById('otherRoleField');
+  const bookDemoBtn = document.getElementById('bookDemo');
 
-function checkAdminAuth() {
-  const isAdmin = localStorage.getItem('isAdmin');
-  if (isAdmin === 'true') {
-    viewResponsesBtn.style.display = 'block';
+  // Set minimum date to today
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('startDate').setAttribute('min', today);
+
+  // Handle form submission
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    // Validate at least one class is selected
+    const selectedClasses = document.querySelectorAll('input[name="classes"]:checked');
+    if (selectedClasses.length === 0) {
+      alert('Please select at least one class to register for.');
+      return;
+    }
+
+    if (form.checkValidity()) {
+      successModal.style.display = 'flex';
+      createConfetti();
+    } else {
+      form.reportValidity();
+    }
+  });
+
+  // Handle modal close and navigation
+  closeModalBtn.addEventListener('click', function () {
+    successModal.style.display = 'none';
+    // Navigate to Post-Login-Landing page
+    window.location.href = 'Post-Login-Landing.html';
+  });
+
+  // Student count increment/decrement
+  incrementBtn.addEventListener('click', function() {
+    const currentValue = parseInt(studentCountInput.value) || 0;
+    studentCountInput.value = currentValue + 1;
+  });
+
+  decrementBtn.addEventListener('click', function() {
+    const currentValue = parseInt(studentCountInput.value) || 0;
+    if (currentValue > 1) {
+      studentCountInput.value = currentValue - 1;
+    }
+  });
+
+  // // Handle "Other" role selection
+  // otherRoleRadio.addEventListener('change', function() {
+  //   if (this.checked) {
+  //     otherRoleField.classList.remove('hidden');
+  //     document.getElementById('otherRoleSpecify').setAttribute('required', 'required');
+  //   }
+  // });
+
+  // // Hide "Other" field when other roles are selected
+  // document.querySelectorAll('input[name="contactRole"]').forEach(function(radio) {
+  //   if (radio.id !== 'otherRole') {
+  //     radio.addEventListener('change', function() {
+  //       if (this.checked) {
+  //         otherRoleField.classList.add('hidden');
+  //         document.getElementById('otherRoleSpecify').removeAttribute('required');
+  //       }
+  //     });
+  //   }
+  // });
+
+  // // Handle class selection validation
+  // const classCheckboxes = document.querySelectorAll('input[name="classes"]');
+  // classCheckboxes.forEach(checkbox => {
+  //   checkbox.addEventListener('change', function() {
+  //     const checkedClasses = document.querySelectorAll('input[name="classes"]:checked');
+  //     // Remove     from all if at least one is checked
+  //     if (checkedClasses.length > 0) {
+  //       classCheckboxes.forEach(cb => cb.removeAttribute('required'));
+  //     } else {
+  //       // Add     to all if none are checked
+  //       classCheckboxes.forEach(cb => cb.setAttribute('required', 'required'));
+  //     }
+  //   });
+  // });
+
+  // Book demo button
+  bookDemoBtn.addEventListener('click', function() {
+    alert('You will be redirected to our demo booking calendar. This feature will be implemented soon.');
+  });
+
+  // Confetti effect
+  function createConfetti() {
+    const confettiCount = 100;
+    const container = document.body;
+    
+    for (let i = 0; i < confettiCount; i++) {
+      const confetti = document.createElement('div');
+      confetti.style.position = 'fixed';
+      confetti.style.width = '10px';
+      confetti.style.height = '10px';
+      confetti.style.backgroundColor = getRandomColor();
+      confetti.style.borderRadius = '50%';
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.top = '-10px';
+      confetti.style.zIndex = '1001';
+      confetti.style.pointerEvents = 'none';
+      container.appendChild(confetti);
+      
+      const animation = confetti.animate([
+        { 
+          transform: 'translate3d(0, 0, 0) rotate(0deg)', 
+          opacity: 1 
+        },
+        { 
+          transform: `translate3d(${(Math.random() * 100 - 50)}px, ${window.innerHeight + 100}px, 0) rotate(${Math.random() * 360}deg)`, 
+          opacity: 0 
+        }
+      ], {
+        duration: Math.random() * 3000 + 2000,
+        easing: 'cubic-bezier(0, .9, .57, 1)',
+        delay: Math.random() * 1000
+      });
+      
+      animation.onfinish = () => confetti.remove();
+    }
   }
-}
 
-function adminLogin() {
-  const password = prompt('Please enter admin password:');
-  if (password === adminPassword) {
-    localStorage.setItem('isAdmin', 'true');
-    viewResponsesBtn.style.display = 'block';
-  } else {
-    localStorage.removeItem('isAdmin');
-    viewResponsesBtn.style.display = 'none';
-    alert('Invalid password');
+  function getRandomColor() {
+    const colors = ['#4F46E5', '#818CF8', '#60A5FA', '#34D399', '#FBBF24', '#F87171', '#A78BFA'];
+    return colors[Math.floor(Math.random() * colors.length)];
   }
-}
-
-// Add admin login shortcut (Ctrl + Alt + A)
-document.addEventListener('keydown', function(e) {
-  if (e.ctrlKey && e.altKey && e.key === 'a') {
-    adminLogin();
-  }
-});
-
-checkAdminAuth();
-
-const responsesModal = document.getElementById('responsesModal');
-const closeResponsesModal = document.getElementById('closeResponsesModal');
-const viewResponsesBtn = document.getElementById('viewResponses');
-const clearResponsesBtn = document.getElementById('clearResponses');
-const downloadExcelBtn = document.getElementById('downloadExcel');
-const responsesTableBody = document.getElementById('responsesTableBody');
-function saveFormData() {
-const formData = {
-date: new Date().toLocaleDateString(),
-schoolName: document.getElementById('schoolName').value,
-contactName: document.getElementById('contactName').value,
-email: document.getElementById('contactEmail').value,
-phone: document.getElementById('contactPhone').value,
-students: document.getElementById('studentCount').value,
-classes: Array.from(document.querySelectorAll('input[name="classes"]:checked')).map(cb => cb.value).join(', '),
-startDate: document.getElementById('startDate').value
-};
-let responses = JSON.parse(localStorage.getItem('formResponses') || '[]');
-responses.push(formData);
-localStorage.setItem('formResponses', JSON.stringify(responses));
-}
-function displayResponses() {
-const responses = JSON.parse(localStorage.getItem('formResponses') || '[]');
-responsesTableBody.innerHTML = '';
-responses.forEach(response => {
-const row = document.createElement('tr');
-row.innerHTML = `
-<td class="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">${response.date}</td>
-<td class="px-4 py-3 text-sm text-gray-900">${response.schoolName}</td>
-<td class="px-4 py-3 text-sm text-gray-900">${response.contactName}</td>
-<td class="px-4 py-3 text-sm text-gray-900">${response.email}</td>
-<td class="px-4 py-3 text-sm text-gray-900">${response.phone}</td>
-<td class="px-4 py-3 text-sm text-gray-900">${response.students}</td>
-<td class="px-4 py-3 text-sm text-gray-900">${response.classes}</td>
-<td class="px-4 py-3 text-sm text-gray-900">${response.startDate}</td>
-`;
-responsesTableBody.appendChild(row);
-});
-}
-function downloadExcel() {
-const responses = JSON.parse(localStorage.getItem('formResponses') || '[]');
-let csv = 'Date,School Name,Contact Name,Email,Phone,Students,Classes,Start Date\n';
-responses.forEach(response => {
-csv += `${response.date},${response.schoolName},${response.contactName},${response.email},${response.phone},${response.students},"${response.classes}",${response.startDate}\n`;
-});
-const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-const link = document.createElement('a');
-link.href = URL.createObjectURL(blob);
-link.download = 'school_registrations.csv';
-link.click();
-}
-form.addEventListener('submit', function(e) {
-e.preventDefault();
-saveFormData();
-successModal.style.display = 'flex';
-});
-viewResponsesBtn.addEventListener('click', function() {
-displayResponses();
-responsesModal.style.display = 'flex';
-});
-closeResponsesModal.addEventListener('click', function() {
-responsesModal.style.display = 'none';
-});
-clearResponsesBtn.addEventListener('click', function() {
-if (confirm('Are you sure you want to clear all responses? This action cannot be undone.')) {
-localStorage.removeItem('formResponses');
-displayResponses();
-}
-});
-downloadExcelBtn.addEventListener('click', downloadExcel);
-// Classes validation
-const classCheckboxes = document.querySelectorAll('input[name="classes"]');
-classCheckboxes.forEach(checkbox => {
-checkbox.addEventListener('change', function() {
-const checkedClasses = document.querySelectorAll('input[name="classes"]:checked');
-classCheckboxes.forEach(cb => {
-cb.required = checkedClasses.length === 0;
-});
-});
-});
-// Other role field toggle
-const otherRoleRadio = document.getElementById('otherRole');
-const otherRoleField = document.getElementById('otherRoleField');
-otherRoleRadio.addEventListener('change', function() {
-if (this.checked) {
-otherRoleField.classList.remove('hidden');
-document.getElementById('otherRoleSpecify').setAttribute('required', 'required');
-} else {
-otherRoleField.classList.add('hidden');
-document.getElementById('otherRoleSpecify').removeAttribute('required');
-}
-});
-document.querySelectorAll('input[name="contactRole"]').forEach(function(radio) {
-if (radio.id !== 'otherRole') {
-radio.addEventListener('change', function() {
-if (this.checked) {
-otherRoleField.classList.add('hidden');
-document.getElementById('otherRoleSpecify').removeAttribute('required');
-}
-});
-}
-});
-// Student count increment/decrement
-const studentCountInput = document.getElementById('studentCount');
-const incrementBtn = document.getElementById('incrementStudents');
-const decrementBtn = document.getElementById('decrementStudents');
-incrementBtn.addEventListener('click', function() {
-const currentValue = parseInt(studentCountInput.value) || 0;
-studentCountInput.value = currentValue + 1;
-});
-decrementBtn.addEventListener('click', function() {
-const currentValue = parseInt(studentCountInput.value) || 0;
-if (currentValue > 1) {
-studentCountInput.value = currentValue - 1;
-}
-});
-// Set minimum date for the date picker (today)
-const today = new Date();
-const yyyy = today.getFullYear();
-const mm = String(today.getMonth() + 1).padStart(2, '0');
-const dd = String(today.getDate()).padStart(2, '0');
-const todayFormatted = `${yyyy}-${mm}-${dd}`;
-document.getElementById('startDate').setAttribute('min', todayFormatted);
-// Form submission
-const form = document.getElementById('schoolRegistrationForm');
-const successModal = document.getElementById('successModal');
-const closeModalBtn = document.getElementById('closeModal');
-form.addEventListener('submit', function(e) {
-e.preventDefault();
-});
-closeModalBtn.addEventListener('click', function() {
-successModal.style.display = 'none';
-});
-// Book a demo button
-document.getElementById('bookDemo').addEventListener('click', function() {
-alert('You will be redirected to our demo booking calendar. This feature will be implemented soon.');
-});
 });
 </script>
+
 </body>
 </html>

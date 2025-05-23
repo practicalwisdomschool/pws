@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Your School - Practical Wisdom School</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4F46E5',secondary:'#818CF8'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+background-color: #f9fafb;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type="number"] {
+    appearance: textfield;
+    -webkit-appearance: none;
+}
+
+.custom-checkbox {
+position: relative;
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.checkmark {
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #4F46E5;
+border-color: #4F46E5;
+}
+.checkmark:after {
+content: "";
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+margin-bottom: 2px;
+}
+.custom-radio {
+position: relative;
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+.custom-radio input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.radiomark {
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #d1d5db;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.custom-radio input:checked ~ .radiomark {
+border-color: #4F46E5;
+}
+.radiomark:after {
+content: "";
+display: none;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: #4F46E5;
+}
+.custom-radio input:checked ~ .radiomark:after {
+display: block;
+}
+.success-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 1000;
+align-items: center;
+justify-content: center;
+}
+.success-content {
+background-color: white;
+padding: 2rem;
+border-radius: 8px;
+max-width: 500px;
+width: 90%;
+text-align: center;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.checkmark-circle {
+width: 80px;
+height: 80px;
+position: relative;
+display: inline-block;
+vertical-align: top;
+margin-bottom: 1rem;
+}
+.checkmark-circle .background {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+background: #4F46E5;
+position: absolute;
+}
+.checkmark-circle .checkmark {
+border-radius: 0;
+width: 40px;
+height: 80px;
+background-color: transparent;
+border: none;
+transform-origin: left top;
+border-right: 15px solid white;
+border-top: 15px solid white;
+border-left: 0;
+border-bottom: 0;
+content: '';
+position: absolute;
+top: 40px;
+left: 17px;
+transform: scaleX(-1) rotate(135deg);
+}
+</style>
+</head>
+<body>
+<div class="min-h-screen flex flex-col">
+<header class="bg-white shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+<div class="flex items-center">
+<h1 class="text-2xl font-['Pacifico'] text-primary">logo</h1>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a href="index.html" data-readdy="true" class="text-gray-600 hover:text-primary transition-colors">Home</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">About</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">Programs</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
+</nav>
+<div class="md:hidden">
+<button type="button" class="w-10 h-10 flex items-center justify-center !rounded-button">
+<i class="ri-menu-line text-gray-600 ri-lg"></i>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow py-12">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-white shadow-md rounded-lg p-6 md:p-8">
+<div class="text-center mb-8">
+<h2 class="text-3xl font-bold text-gray-900">Register Your School</h2>
+<p class="mt-2 text-gray-600">Join Practical Wisdom School's platform to enhance your students' learning experience</p>
+</div>
+<form id="schoolRegistrationForm">
+<!-- Basic School Information -->
+<div class="mb-8">
+<h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">Basic School Information</h3>
+<div class="mb-5">
+<label for="schoolName" class="block text-sm font-medium text-gray-700 mb-1">School Name <span class="text-red-500">*</span></label>
+<input type="text" id="schoolName" name="schoolName" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your school name">
+</div>
+<div class="mb-5">
+<label class="block text-sm font-medium text-gray-700 mb-1">School Address <span class="text-red-500">*</span></label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="col-span-2">
+<input type="text" id="streetAddress" name="streetAddress" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Street Address">
+</div>
+<div>
+<input type="text" id="city" name="city" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="City">
+</div>
+<div>
+<input type="text" id="state" name="state" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="State/Province">
+</div>
+<div class="md:col-span-2">
+<input type="text" id="postalCode" name="postalCode" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Postal/Zip Code">
+</div>
+</div>
+</div>
+<div class="mb-5">
+<label for="schoolType" class="block text-sm font-medium text-gray-700 mb-1">Type of School <span class="text-red-500">*</span></label>
+<div class="relative">
+<select id="schoolType" name="schoolType" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors appearance-none text-sm pr-8">
+<option value="" disabled selected>Select school type</option>
+<option value="public">Public School</option>
+<option value="private">Private School</option>
+<option value="charter">Charter School</option>
+<option value="homeschool">Homeschool</option>
+<option value="international">International School</option>
+<option value="other">Other</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+<div class="mb-5">
+<label for="schoolWebsite" class="block text-sm font-medium text-gray-700 mb-1">School Website <span class="text-gray-400 text-xs">(Optional)</span></label>
+<input type="url" id="schoolWebsite" name="schoolWebsite" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="https://www.yourschool.edu">
+</div>
+</div>
+<!-- Contact Details -->
+<div class="mb-8">
+<h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">Contact Details</h3>
+<div class="mb-5">
+<label class="block text-sm font-medium text-gray-700 mb-3">Point of Contact <span class="text-red-500">*</span></label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<label class="custom-radio">
+<input type="radio" name="contactRole" value="principal" checked>
+<span class="radiomark mr-2"></span>
+<span>Principal</span>
+</label>
+<label class="custom-radio">
+<input type="radio" name="contactRole" value="counselor">
+<span class="radiomark mr-2"></span>
+<span>Counselor</span>
+</label>
+<label class="custom-radio">
+<input type="radio" name="contactRole" value="headOfDepartment">
+<span class="radiomark mr-2"></span>
+<span>Head of Department</span>
+</label>
+<label class="custom-radio">
+<input type="radio" name="contactRole" value="teacher">
+<span class="radiomark mr-2"></span>
+<span>Teacher/Coordinator</span>
+</label>
+<label class="custom-radio col-span-1 sm:col-span-2">
+<input type="radio" name="contactRole" value="other" id="otherRole">
+<span class="radiomark mr-2"></span>
+<span>Other</span>
+</label>
+<div class="col-span-1 sm:col-span-2 pl-8 hidden" id="otherRoleField">
+<input type="text" id="otherRoleSpecify" name="otherRoleSpecify" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Please specify">
+</div>
+</div>
+</div>
+<div class="mb-5">
+<label for="contactName" class="block text-sm font-medium text-gray-700 mb-1">Name of Point of Contact <span class="text-red-500">*</span></label>
+<input type="text" id="contactName" name="contactName" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Full name">
+</div>
+<div class="mb-5">
+<label for="contactEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
+<input type="email" id="contactEmail" name="contactEmail" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="email@school.edu">
+</div>
+<div class="mb-5">
+<label for="contactPhone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
+<input type="tel" id="contactPhone" name="contactPhone" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="(123) 456-7890">
+</div>
+</div>
+<!-- Program Details -->
+<div class="mb-8">
+<h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">Program Details</h3>
+<div class="mb-5">
+<label for="studentCount" class="block text-sm font-medium text-gray-700 mb-1">Number of Students to Register <span class="text-red-500">*</span></label>
+<div class="relative">
+<input type="number" id="studentCount" name="studentCount" min="1" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter number of students">
+<div class="absolute inset-y-0 right-0 flex">
+<button type="button" id="decrementStudents" class="px-2 border-l border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700 !rounded-button">
+<i class="ri-subtract-line"></i>
+</button>
+<button type="button" id="incrementStudents" class="px-2 border-l border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700 !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="mb-5">
+<label class="block text-sm font-medium text-gray-700 mb-3">Classes to Register <span class="text-red-500">*</span></label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<label class="custom-checkbox">
+<input type="checkbox" name="classes" value="mathematics" required>
+<span class="checkmark mr-2"></span>
+<span>Mathematics</span>
+</label>
+<label class="custom-checkbox">
+<input type="checkbox" name="classes" value="science">
+<span class="checkmark mr-2"></span>
+<span>Science</span>
+</label>
+<label class="custom-checkbox">
+<input type="checkbox" name="classes" value="english">
+<span class="checkmark mr-2"></span>
+<span>English</span>
+</label>
+<label class="custom-checkbox">
+<input type="checkbox" name="classes" value="history">
+<span class="checkmark mr-2"></span>
+<span>History</span>
+</label>
+<label class="custom-checkbox">
+<input type="checkbox" name="classes" value="computerScience">
+<span class="checkmark mr-2"></span>
+<span>Computer Science</span>
+</label>
+<label class="custom-checkbox">
+<input type="checkbox" name="classes" value="art">
+<span class="checkmark mr-2"></span>
+<span>Art & Design</span>
+</label>
+<label class="custom-checkbox">
+<input type="checkbox" name="classes" value="music">
+<span class="checkmark mr-2"></span>
+<span>Music</span>
+</label>
+<label class="custom-checkbox">
+<input type="checkbox" name="classes" value="physicalEducation">
+<span class="checkmark mr-2"></span>
+<span>Physical Education</span>
+</label>
+</div>
+</div>
+<div class="mb-5">
+<label for="startDate" class="block text-sm font-medium text-gray-700 mb-1">Preferred Start Date <span class="text-red-500">*</span></label>
+<input type="date" id="startDate" name="startDate" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm">
+</div>
+<div class="mb-5">
+<label for="additionalNotes" class="block text-sm font-medium text-gray-700 mb-1">Additional Notes/Requests <span class="text-gray-400 text-xs">(Optional)</span></label>
+<textarea id="additionalNotes" name="additionalNotes" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Please share any specific requirements or questions you may have"></textarea>
+</div>
+<div class="mb-5">
+<label class="custom-checkbox flex items-start">
+<input type="checkbox" id="termsAgree" name="termsAgree" required>
+<span class="checkmark mt-0.5 mr-2"></span>
+<span class="text-sm text-gray-700">I agree to the <a href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a></span>
+</label>
+</div>
+</div>
+<!-- Buttons -->
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="Post-Login-Landing.html" data-readdy="true">
+<button type="button" class="px-6 py-3 bg-primary text-white font-medium text-sm rounded shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Submit Registration</button>
+</a>
+<button type="button" id="bookDemo" class="px-6 py-3 border border-primary text-primary font-medium text-sm rounded shadow-sm hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Book a Demo Class</button>
+<!-- Admin button will only be visible when logged in -->
+<button type="button" id="viewResponses" style="display: none;" class="px-6 py-3 border border-primary text-primary font-medium text-sm rounded shadow-sm hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">View Responses</button>
+</div>
+</form>
+</div>
+</div>
+</main>
+<footer class="bg-gray-800 text-white py-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<h3 class="text-lg font-semibold mb-4">Practical Wisdom School</h3>
+<p class="text-gray-300 text-sm">Empowering students with knowledge and practical skills for a brighter future.</p>
+</div>
+<div>
+<h4 class="text-base font-medium mb-4">Quick Links</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Programs</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Resources</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-base font-medium mb-4">Support</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Help Center</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">FAQs</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-base font-medium mb-4">Connect With Us</h4>
+<div class="flex space-x-4 mb-4">
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+<i class="ri-facebook-fill text-white"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+<i class="ri-twitter-fill text-white"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+<i class="ri-instagram-fill text-white"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill text-white"></i>
+</a>
+</div>
+<p class="text-sm text-gray-300">Email: info@practicalwisdom.edu</p>
+<p class="text-sm text-gray-300">Phone: (123) 456-7890</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-300">
+<p>© 2025 Practical Wisdom School. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+<!-- Responses Modal -->
+<div class="success-modal" id="responsesModal">
+<div class="success-content max-w-4xl w-11/12 p-0">
+<div class="bg-primary p-4 rounded-t-lg">
+<div class="flex justify-between items-center">
+<h3 class="text-xl font-semibold text-white">Registration Responses</h3>
+<button id="closeResponsesModal" class="text-white hover:text-gray-200">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+</div>
+<div class="p-4 overflow-x-auto max-h-[70vh]">
+<table class="min-w-full bg-white" id="responsesTable">
+<thead class="bg-gray-50">
+<tr>
+<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Date</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">School Name</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Contact Name</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Email</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Phone</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Students</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Classes</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Start Date</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200" id="responsesTableBody">
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-gray-50 rounded-b-lg flex justify-between items-center">
+<button id="clearResponses" class="px-4 py-2 text-red-600 hover:text-red-700 font-medium text-sm focus:outline-none">
+Clear All Data
+</button>
+<button id="downloadExcel" class="px-4 py-2 bg-primary text-white font-medium text-sm rounded shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button">
+Download Excel
+</button>
+</div>
+</div>
+</div>
+<!-- Success Modal -->
+<div class="success-modal" id="successModal">
+<div class="success-content">
+<div class="checkmark-circle">
+<div class="background"></div>
+<div class="checkmark"></div>
+</div>
+<h3 class="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
+<p class="text-gray-600 mb-4">Your school registration has been successfully submitted.</p>
+<p class="text-gray-600 mb-6">Our team will review your information and contact you within 2 business days to discuss next steps.</p>
+<button id="closeModal" class="px-6 py-2 bg-primary text-white font-medium rounded shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Close</button>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const adminPassword = '123456'; // This should be replaced with secure authentication
+
+function checkAdminAuth() {
+  const isAdmin = localStorage.getItem('isAdmin');
+  if (isAdmin === 'true') {
+    viewResponsesBtn.style.display = 'block';
+  }
+}
+
+function adminLogin() {
+  const password = prompt('Please enter admin password:');
+  if (password === adminPassword) {
+    localStorage.setItem('isAdmin', 'true');
+    viewResponsesBtn.style.display = 'block';
+  } else {
+    localStorage.removeItem('isAdmin');
+    viewResponsesBtn.style.display = 'none';
+    alert('Invalid password');
+  }
+}
+
+// Add admin login shortcut (Ctrl + Alt + A)
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.altKey && e.key === 'a') {
+    adminLogin();
+  }
+});
+
+checkAdminAuth();
+
+const responsesModal = document.getElementById('responsesModal');
+const closeResponsesModal = document.getElementById('closeResponsesModal');
+const viewResponsesBtn = document.getElementById('viewResponses');
+const clearResponsesBtn = document.getElementById('clearResponses');
+const downloadExcelBtn = document.getElementById('downloadExcel');
+const responsesTableBody = document.getElementById('responsesTableBody');
+function saveFormData() {
+const formData = {
+date: new Date().toLocaleDateString(),
+schoolName: document.getElementById('schoolName').value,
+contactName: document.getElementById('contactName').value,
+email: document.getElementById('contactEmail').value,
+phone: document.getElementById('contactPhone').value,
+students: document.getElementById('studentCount').value,
+classes: Array.from(document.querySelectorAll('input[name="classes"]:checked')).map(cb => cb.value).join(', '),
+startDate: document.getElementById('startDate').value
+};
+let responses = JSON.parse(localStorage.getItem('formResponses') || '[]');
+responses.push(formData);
+localStorage.setItem('formResponses', JSON.stringify(responses));
+}
+function displayResponses() {
+const responses = JSON.parse(localStorage.getItem('formResponses') || '[]');
+responsesTableBody.innerHTML = '';
+responses.forEach(response => {
+const row = document.createElement('tr');
+row.innerHTML = `
+<td class="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">${response.date}</td>
+<td class="px-4 py-3 text-sm text-gray-900">${response.schoolName}</td>
+<td class="px-4 py-3 text-sm text-gray-900">${response.contactName}</td>
+<td class="px-4 py-3 text-sm text-gray-900">${response.email}</td>
+<td class="px-4 py-3 text-sm text-gray-900">${response.phone}</td>
+<td class="px-4 py-3 text-sm text-gray-900">${response.students}</td>
+<td class="px-4 py-3 text-sm text-gray-900">${response.classes}</td>
+<td class="px-4 py-3 text-sm text-gray-900">${response.startDate}</td>
+`;
+responsesTableBody.appendChild(row);
+});
+}
+function downloadExcel() {
+const responses = JSON.parse(localStorage.getItem('formResponses') || '[]');
+let csv = 'Date,School Name,Contact Name,Email,Phone,Students,Classes,Start Date\n';
+responses.forEach(response => {
+csv += `${response.date},${response.schoolName},${response.contactName},${response.email},${response.phone},${response.students},"${response.classes}",${response.startDate}\n`;
+});
+const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+const link = document.createElement('a');
+link.href = URL.createObjectURL(blob);
+link.download = 'school_registrations.csv';
+link.click();
+}
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+saveFormData();
+successModal.style.display = 'flex';
+});
+viewResponsesBtn.addEventListener('click', function() {
+displayResponses();
+responsesModal.style.display = 'flex';
+});
+closeResponsesModal.addEventListener('click', function() {
+responsesModal.style.display = 'none';
+});
+clearResponsesBtn.addEventListener('click', function() {
+if (confirm('Are you sure you want to clear all responses? This action cannot be undone.')) {
+localStorage.removeItem('formResponses');
+displayResponses();
+}
+});
+downloadExcelBtn.addEventListener('click', downloadExcel);
+// Classes validation
+const classCheckboxes = document.querySelectorAll('input[name="classes"]');
+classCheckboxes.forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+const checkedClasses = document.querySelectorAll('input[name="classes"]:checked');
+classCheckboxes.forEach(cb => {
+cb.required = checkedClasses.length === 0;
+});
+});
+});
+// Other role field toggle
+const otherRoleRadio = document.getElementById('otherRole');
+const otherRoleField = document.getElementById('otherRoleField');
+otherRoleRadio.addEventListener('change', function() {
+if (this.checked) {
+otherRoleField.classList.remove('hidden');
+document.getElementById('otherRoleSpecify').setAttribute('required', 'required');
+} else {
+otherRoleField.classList.add('hidden');
+document.getElementById('otherRoleSpecify').removeAttribute('required');
+}
+});
+document.querySelectorAll('input[name="contactRole"]').forEach(function(radio) {
+if (radio.id !== 'otherRole') {
+radio.addEventListener('change', function() {
+if (this.checked) {
+otherRoleField.classList.add('hidden');
+document.getElementById('otherRoleSpecify').removeAttribute('required');
+}
+});
+}
+});
+// Student count increment/decrement
+const studentCountInput = document.getElementById('studentCount');
+const incrementBtn = document.getElementById('incrementStudents');
+const decrementBtn = document.getElementById('decrementStudents');
+incrementBtn.addEventListener('click', function() {
+const currentValue = parseInt(studentCountInput.value) || 0;
+studentCountInput.value = currentValue + 1;
+});
+decrementBtn.addEventListener('click', function() {
+const currentValue = parseInt(studentCountInput.value) || 0;
+if (currentValue > 1) {
+studentCountInput.value = currentValue - 1;
+}
+});
+// Set minimum date for the date picker (today)
+const today = new Date();
+const yyyy = today.getFullYear();
+const mm = String(today.getMonth() + 1).padStart(2, '0');
+const dd = String(today.getDate()).padStart(2, '0');
+const todayFormatted = `${yyyy}-${mm}-${dd}`;
+document.getElementById('startDate').setAttribute('min', todayFormatted);
+// Form submission
+const form = document.getElementById('schoolRegistrationForm');
+const successModal = document.getElementById('successModal');
+const closeModalBtn = document.getElementById('closeModal');
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+});
+closeModalBtn.addEventListener('click', function() {
+successModal.style.display = 'none';
+});
+// Book a demo button
+document.getElementById('bookDemo').addEventListener('click', function() {
+alert('You will be redirected to our demo booking calendar. This feature will be implemented soon.');
+});
+});
+</script>
+</body>
+</html>

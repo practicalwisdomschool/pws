@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Progress | Learning Dashboard</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4f46e5',secondary:'#818cf8'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+background-color: #f9fafb;
+}
+.progress-ring {
+transform: rotate(-90deg);
+}
+.progress-ring-circle {
+transition: stroke-dashoffset 0.35s;
+transform-origin: 50% 50%;
+}
+input[type="checkbox"] {
+appearance: none;
+-webkit-appearance: none;
+height: 20px;
+width: 20px;
+border-radius: 4px;
+border: 1px solid #d1d5db;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+input[type="checkbox"]:checked {
+background-color: #4f46e5;
+border-color: #4f46e5;
+}
+input[type="checkbox"]:checked::after {
+content: "";
+display: block;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+margin-bottom: 2px;
+}
+</style>
+</head>
+<body>
+<div class="min-h-screen flex flex-col">
+<!-- Header -->
+<header class="bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<div class="flex items-center">
+<h1 class="text-2xl font-['Pacifico'] text-primary">logo</h1>
+<nav class="ml-10 hidden md:flex space-x-8">
+<a href="Post-Login-Landing.html" class="text-gray-500 hover:text-primary">Home</a>
+<a href="#" class="text-primary font-medium">My Progress</a>
+<a href="#" class="text-gray-500 hover:text-primary">Courses</a>
+<a href="#" class="text-gray-500 hover:text-primary"></a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 cursor-pointer">
+<i class="ri-notification-3-line ri-lg"></i>
+</div>
+<span class="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full flex items-center justify-center text-white text-xs">3</span>
+</div>
+<div class="flex items-center space-x-2">
+<div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20student%20with%20short%20brown%20hair%2C%20neutral%20expression%2C%20simple%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=12345&orientation=squarish" alt="Profile" class="w-full h-full object-cover">
+</div>
+<span class="text-sm font-medium hidden md:inline-block">Emma Thompson</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow container mx-auto px-4 py-8">
+<!-- Page Title and Overview -->
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
+<div>
+<h1 class="text-3xl font-bold text-gray-900">My Progress</h1>
+<p class="text-gray-600 mt-1">Track your learning journey and achievements</p>
+</div>
+<div class="mt-4 md:mt-0 flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<span class="text-sm text-gray-500">Last updated: April 28, 2025</span>
+</div>
+<button class="flex items-center space-x-2 bg-white border border-gray-300 text-gray-700 px-4 py-2 !rounded-button hover:bg-gray-50 whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-download-line"></i>
+</div>
+<span>Export Progress</span>
+</button>
+</div>
+</div>
+<a href="Post-Login-Landing.html" data-readdy="true" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg">
+    <div class="w-5 h-5 flex items-center justify-center mr-3">
+    <i class="ri-home-line text-gray-500"></i>
+    </div>
+    <span>Home</span>
+<!-- Overall Progress -->
+<div class="bg-white shadow rounded-lg p-6 mb-8">
+<div class="flex flex-col md:flex-row items-center">
+<div class="w-48 h-48 relative mb-6 md:mb-0">
+<svg class="progress-ring" width="160" height="160">
+<circle class="progress-ring-circle" stroke="#e5e7eb" stroke-width="10" fill="transparent" r="70" cx="80" cy="80"/>
+<circle class="progress-ring-circle" stroke="#4f46e5" stroke-width="10" fill="transparent" r="70" cx="80" cy="80" stroke-dasharray="439.8" stroke-dashoffset="110"/>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-bold text-gray-900">75%</span>
+<span class="text-sm text-gray-500">Overall Progress</span>
+</div>
+</div>
+<div class="md:ml-10 flex-grow">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-gray-600">Enrolled Courses</span>
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600">
+<i class="ri-book-open-line"></i>
+</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">8</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-gray-600">Completed</span>
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+<i class="ri-check-line"></i>
+</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">6</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-gray-600">In Progress</span>
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
+<i class="ri-time-line"></i>
+</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">2</div>
+</div>
+</div>
+<div class="mt-6">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-medium text-gray-700">Weekly Learning Goal</span>
+<span class="text-sm text-gray-600">5 of 7 hours completed</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 71%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Recent Activities -->
+<div class="bg-white shadow rounded-lg p-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold text-gray-900">Recent Activities</h2>
+<a href="#" class="text-sm text-primary hover:text-primary/80">View All</a>
+</div>
+<div class="space-y-4">
+<div class="flex items-start p-4 rounded-lg hover:bg-gray-50">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-100 text-green-600 mr-4">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h3 class="font-medium text-gray-900">Completed Quiz</h3>
+<span class="text-sm text-gray-500">Today, 10:25 AM</span>
+</div>
+<p class="text-gray-600">Advanced JavaScript: Module 3 Quiz</p>
+<div class="mt-1 flex items-center">
+<span class="text-sm font-medium text-green-600">Score: 92%</span>
+</div>
+</div>
+</div>
+<div class="flex items-start p-4 rounded-lg hover:bg-gray-50">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mr-4">
+<i class="ri-video-line"></i>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h3 class="font-medium text-gray-900">Watched Lecture</h3>
+<span class="text-sm text-gray-500">Yesterday, 4:12 PM</span>
+</div>
+<p class="text-gray-600">UX Design Principles: User Research Methods</p>
+<div class="mt-1 flex items-center">
+<span class="text-sm text-gray-500">45 minutes</span>
+</div>
+</div>
+</div>
+<div class="flex items-start p-4 rounded-lg hover:bg-gray-50">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-purple-100 text-purple-600 mr-4">
+<i class="ri-file-text-line"></i>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h3 class="font-medium text-gray-900">Submitted Assignment</h3>
+<span class="text-sm text-gray-500">April 26, 2025</span>
+</div>
+<p class="text-gray-600">Data Analysis: Final Project Submission</p>
+<div class="mt-1 flex items-center">
+<span class="text-sm text-yellow-600">Pending Review</span>
+</div>
+</div>
+</div>
+<div class="flex items-start p-4 rounded-lg hover:bg-gray-50">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mr-4">
+<i class="ri-discuss-line"></i>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h3 class="font-medium text-gray-900">Forum Participation</h3>
+<span class="text-sm text-gray-500">April 25, 2025</span>
+</div>
+<p class="text-gray-600">Replied to discussion: "Best Practices for API Design"</p>
+<div class="mt-1 flex items-center">
+<span class="text-sm text-gray-500">3 replies</span>
+</div>
+</div>
+</div>
+<div class="flex items-start p-4 rounded-lg hover:bg-gray-50">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-100 text-green-600 mr-4">
+<i class="ri-book-read-line"></i>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h3 class="font-medium text-gray-900">Completed Reading</h3>
+<span class="text-sm text-gray-500">April 24, 2025</span>
+</div>
+<p class="text-gray-600">Cloud Computing: Chapter 5 - Containerization</p>
+<div class="mt-1 flex items-center">
+<span class="text-sm text-gray-500">32 pages</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column -->
+<div class="space-y-8">
+<!-- Achievement Badges -->
+<div class="bg-white shadow rounded-lg p-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold text-gray-900">Achievement Badges</h2>
+<a href="#" class="text-sm text-primary hover:text-primary/80">View All</a>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col items-center p-4 rounded-lg bg-gray-50">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-600 mb-3">
+<i class="ri-medal-line ri-2x"></i>
+</div>
+<h3 class="font-medium text-gray-900 text-center">Fast Learner</h3>
+<p class="text-xs text-gray-500 text-center mt-1">Completed 5 courses in 3 months</p>
+</div>
+<div class="flex flex-col items-center p-4 rounded-lg bg-gray-50">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mb-3">
+<i class="ri-trophy-line ri-2x"></i>
+</div>
+<h3 class="font-medium text-gray-900 text-center">Perfect Score</h3>
+<p class="text-xs text-gray-500 text-center mt-1">100% on 3 consecutive quizzes</p>
+</div>
+<div class="flex flex-col items-center p-4 rounded-lg bg-gray-50">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-green-100 text-green-600 mb-3">
+<i class="ri-team-line ri-2x"></i>
+</div>
+<h3 class="font-medium text-gray-900 text-center">Team Player</h3>
+<p class="text-xs text-gray-500 text-center mt-1">Participated in 10 forum discussions</p>
+</div>
+<div class="flex flex-col items-center p-4 rounded-lg bg-gray-100">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-gray-200 text-gray-400 mb-3">
+<i class="ri-rocket-line ri-2x"></i>
+</div>
+<h3 class="font-medium text-gray-400 text-center">Early Bird</h3>
+<p class="text-xs text-gray-400 text-center mt-1">Submit 5 assignments before deadline</p>
+</div>
+</div>
+</div>
+<!-- Upcoming Deadlines -->
+<div class="bg-white shadow rounded-lg p-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold text-gray-900">Upcoming Deadlines</h2>
+<button class="text-sm text-primary hover:text-primary/80 flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+<span>Sync Calendar</span>
+</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center p-3 rounded-lg border-l-4 border-red-500 bg-red-50">
+<div class="flex-grow">
+<div class="flex items-center">
+<span class="text-xs font-medium text-red-600 bg-red-100 rounded-full px-2 py-0.5 mr-2">Due Today</span>
+<h3 class="font-medium text-gray-900">UX Design Project</h3>
+</div>
+<p class="text-sm text-gray-600 mt-1">Final wireframes submission</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-medium text-gray-900">11:59 PM</span>
+</div>
+</div>
+<div class="flex items-center p-3 rounded-lg border-l-4 border-yellow-500 bg-yellow-50">
+<div class="flex-grow">
+<div class="flex items-center">
+<span class="text-xs font-medium text-yellow-600 bg-yellow-100 rounded-full px-2 py-0.5 mr-2">Tomorrow</span>
+<h3 class="font-medium text-gray-900">JavaScript Quiz</h3>
+</div>
+<p class="text-sm text-gray-600 mt-1">Module 4 assessment</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-medium text-gray-900">3:00 PM</span>
+</div>
+</div>
+<div class="flex items-center p-3 rounded-lg border-l-4 border-blue-500 bg-blue-50">
+<div class="flex-grow">
+<div class="flex items-center">
+<span class="text-xs font-medium text-blue-600 bg-blue-100 rounded-full px-2 py-0.5 mr-2">May 2</span>
+<h3 class="font-medium text-gray-900">Group Discussion</h3>
+</div>
+<p class="text-sm text-gray-600 mt-1">Cloud Computing case study</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-medium text-gray-900">2:30 PM</span>
+</div>
+</div>
+<div class="flex items-center p-3 rounded-lg border-l-4 border-gray-300 bg-gray-50">
+<div class="flex-grow">
+<div class="flex items-center">
+<span class="text-xs font-medium text-gray-600 bg-gray-200 rounded-full px-2 py-0.5 mr-2">May 5</span>
+<h3 class="font-medium text-gray-900">Data Analysis</h3>
+</div>
+<p class="text-sm text-gray-600 mt-1">Mid-term project review</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-medium text-gray-900">10:00 AM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Course Completion -->
+<div class="bg-white shadow rounded-lg p-6">
+<h2 class="text-xl font-bold text-gray-900 mb-6">Course Completion</h2>
+<div class="space-y-4">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-medium text-gray-700">UX Design Principles</span>
+<span class="text-sm text-gray-600">68%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 68%"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-medium text-gray-700">Advanced JavaScript</span>
+<span class="text-sm text-gray-600">82%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-medium text-gray-700">Data Analysis</span>
+<span class="text-sm text-gray-600">45%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-medium text-gray-700">Cloud Computing</span>
+<span class="text-sm text-gray-600">100%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-green-500 h-2.5 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-medium text-gray-700">API Design</span>
+<span class="text-sm text-gray-600">100%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-green-500 h-2.5 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white border-t border-gray-200 mt-12">
+<div class="container mx-auto px-4 py-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="mb-4 md:mb-0">
+<p class="text-sm text-gray-500">&copy; 2025 Learning Platform. All rights reserved.</p>
+</div>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-question-line"></i>
+</div>
+</a>
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-settings-line"></i>
+</div>
+</a>
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-feedback-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+});
+</script>
+</body>
+</html>

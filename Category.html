@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Course Categories
+  </title>
+  <script src="https://cdn.tailwindcss.com/3.4.16">
+  </script>
+  <script>
+   tailwind.config={theme:{extend:{colors:{primary:'#4F46E5',secondary:'#10B981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet"/>
+  <style>
+   :where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+background-color: #f9fafb;
+}
+.category-card {
+transition: all 0.3s ease-in-out;
+overflow: hidden;
+}
+.category-card:hover {
+transform: scale(1.02);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.course-list {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease-in-out;
+}
+.category-card.active .course-list {
+max-height: 500px;
+}
+.arrow-icon {
+transition: transform 0.3s ease-in-out;
+}
+.category-card.active .arrow-icon {
+transform: rotate(180deg);
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+  </style>
+ </head>
+ <body>
+  <header class="w-full bg-white shadow-sm">
+   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a class="text-2xl font-['Pacifico'] text-primary" href="#">
+     logo
+    </a>
+    <nav class="hidden md:flex space-x-8">
+     <a class="text-gray-800 hover:text-primary font-medium" data-readdy="true" href="Landing-1.html">
+      Home
+     </a>
+     <a class="text-gray-800 hover:text-primary font-medium" data-readdy="true" href="All-Courses.html">
+      All Courses
+     </a>
+    </nav>
+    <div class="flex items-center space-x-4">
+    </div>
+   </div>
+  </header>
+  <main class="container mx-auto px-4 py-12">
+   <div class="max-w-4xl mx-auto mb-12 text-center">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">
+     Explore Our Course Categories
+    </h1>
+    <p class="text-lg text-gray-600">
+     Discover a wide range of courses designed to help you grow personally and professionally
+    </p>
+   </div>
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Career Category -->
+    <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="Career" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Professional%20office%20environment%20with%20modern%20workspace%2C%20clean%20desk%20setup%20with%20laptop%20and%20office%20supplies%2C%20bright%20natural%20lighting%2C%20minimalist%20corporate%20setting%2C%20business%20professional%20atmosphere&amp;width=400&amp;height=300&amp;seq=1&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       Career
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- Lifeskills Category -->
+    <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="Lifeskills" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Professional%20development%20and%20life%20skills%20concept%2C%20modern%20workspace%20with%20laptop%2C%20notebook%2C%20and%20motivational%20elements%2C%20bright%20natural%20lighting%2C%20organized%20desk%20with%20productivity%20tools%20and%20personal%20growth%20resources%2C%20minimalist%20and%20inspiring%20setting&amp;width=400&amp;height=300&amp;seq=2&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       Lifeskills
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- MS-Office Suite Category -->
+    <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="MS-Office Suite" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Modern%20office%20workspace%20with%20Microsoft%20Office%20applications%20displayed%20on%20multiple%20screens%2C%20professional%20desk%20setup%20with%20laptop%20showing%20Excel%20spreadsheets%2C%20PowerPoint%20presentations%2C%20and%20Word%20documents%2C%20clean%20and%20organized%20workspace%20with%20natural%20lighting&amp;width=400&amp;height=300&amp;seq=3&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       MS-Office Suite
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- Tech Category -->
+    <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="Tech" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Modern%20tech%20workspace%20with%20multiple%20screens%20displaying%20code%2C%20programming%20interfaces%2C%20and%20development%20tools%2C%20clean%20minimalist%20setup%20with%20soft%20ambient%20lighting%2C%20professional%20development%20environment%20with%20cutting-edge%20technology&amp;width=400&amp;height=300&amp;seq=4&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       Tech
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- Health and Wellness Category -->
+    <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="Health and Wellness" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Serene%20wellness%20space%20with%20yoga%20mats%2C%20meditation%20cushions%2C%20and%20natural%20elements%2C%20soft%20lighting%20with%20plants%20and%20calming%20decor%2C%20clean%20and%20minimalist%20health-focused%20environment%20with%20modern%20fitness%20equipment&amp;width=400&amp;height=300&amp;seq=5&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       Health and Wellness
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- Marketing Category -->
+    <!-- <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="Marketing" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Modern%20marketing%20workspace%20with%20digital%20analytics%20displays%2C%20social%20media%20dashboards%2C%20and%20creative%20content%20planning%20boards%2C%20professional%20marketing%20environment%20with%20sleek%20design%20elements%20and%20brand%20strategy%20visuals&amp;width=400&amp;height=300&amp;seq=6&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       Marketing
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div> -->
+    <!-- Social Quotient Category -->
+    <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="Social Quotient" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Professional%20networking%20space%20with%20collaborative%20meeting%20areas%2C%20modern%20communication%20technology%2C%20and%20interactive%20presentation%20screens%2C%20dynamic%20social%20environment%20with%20contemporary%20design%20elements&amp;width=400&amp;height=300&amp;seq=7&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       Social Quotient
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- Everyday Finance Category -->
+    <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="Everyday Finance" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Modern%20personal%20finance%20workspace%20with%20budgeting%20tools%2C%20financial%20planning%20software%2C%20and%20investment%20tracking%20displays%2C%20clean%20professional%20environment%20with%20financial%20charts%20and%20graphs&amp;width=400&amp;height=300&amp;seq=8&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       Everyday Finance
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- Core Finance Category -->
+    <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="Core Finance" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Professional%20financial%20trading%20desk%20with%20multiple%20monitors%20showing%20market%20data%2C%20stock%20charts%2C%20and%20financial%20analytics%2C%20sophisticated%20corporate%20finance%20environment%20with%20modern%20technology&amp;width=400&amp;height=300&amp;seq=9&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       Core Finance
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- Home and Lifestyle Category -->
+    <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="Home and Lifestyle" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Modern%20minimalist%20home%20interior%20with%20stylish%20furniture%2C%20smart%20home%20technology%2C%20and%20organized%20living%20spaces%2C%20contemporary%20lifestyle%20setting%20with%20natural%20light%20and%20elegant%20decor&amp;width=400&amp;height=300&amp;seq=10&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       Home and Lifestyle
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- ESG Category -->
+    <div class="category-card relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg">
+     <img alt="ESG" class="w-full h-[300px] object-cover" src="https://readdy.ai/api/search-image?query=Sustainable%20office%20environment%20with%20green%20technology%2C%20renewable%20energy%20displays%2C%20and%20environmental%20impact%20metrics%2C%20modern%20eco-friendly%20workspace%20with%20natural%20elements%20and%20clean%20design&amp;width=400&amp;height=300&amp;seq=11&amp;orientation=landscape"/>
+     <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity group-hover:bg-opacity-60">
+     </div>
+     <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">
+       ESG
+      </h3>
+      <div class="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+       <a data-readdy="true" href="#" onclick="showModal(); return false;">
+        <button class="mt-4 px-6 py-2 bg-white text-gray-900 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+         Know More
+        </button>
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <footer class="bg-gray-900 text-white py-12 mt-16">
+   <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+     <div>
+      <h3 class="text-xl font-['Pacifico'] mb-4">
+       logo
+      </h3>
+      <p class="text-gray-400 mb-4">
+       Empowering individuals with the skills they need to succeed in today's rapidly changing world.
+      </p>
+      <div class="flex space-x-4">
+       <a class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors" href="#">
+        <i class="ri-facebook-fill text-white ri-lg">
+        </i>
+       </a>
+       <a class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors" href="#">
+        <i class="ri-twitter-fill text-white ri-lg">
+        </i>
+       </a>
+       <a class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors" href="#">
+        <i class="ri-instagram-fill text-white ri-lg">
+        </i>
+       </a>
+       <a class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors" href="#">
+        <i class="ri-linkedin-fill text-white ri-lg">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div>
+      <h4 class="text-lg font-semibold mb-4">
+       Quick Links
+      </h4>
+      <ul class="space-y-2">
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Home
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         About Us
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Courses
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Pricing
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Contact
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="text-lg font-semibold mb-4">
+       Support
+      </h4>
+      <ul class="space-y-2">
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Help Center
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         FAQs
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Privacy Policy
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Terms of Service
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Cookie Policy
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="text-lg font-semibold mb-4">
+       Subscribe
+      </h4>
+      <p class="text-gray-400 mb-4">
+       Stay updated with our latest courses and offers
+      </p>
+      <form class="flex flex-col space-y-3">
+       <input class="px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-primary text-white" placeholder="Your email address" type="email"/>
+       <button class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap" type="submit">
+        Subscribe
+       </button>
+      </form>
+     </div>
+    </div>
+    <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+     <p class="text-gray-400 text-sm">
+      © 2025 Learning Platform. All rights reserved.
+     </p>
+     <div class="flex space-x-4 mt-4 md:mt-0">
+      <div class="w-8 h-8 flex items-center justify-center">
+       <i class="ri-visa-line text-gray-400 ri-lg">
+       </i>
+      </div>
+      <div class="w-8 h-8 flex items-center justify-center">
+       <i class="ri-mastercard-line text-gray-400 ri-lg">
+       </i>
+      </div>
+      <div class="w-8 h-8 flex items-center justify-center">
+       <i class="ri-paypal-line text-gray-400 ri-lg">
+       </i>
+      </div>
+      <div class="w-8 h-8 flex items-center justify-center">
+       <i class="ri-apple-fill text-gray-400 ri-lg">
+       </i>
+      </div>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+const categoryCards = document.querySelectorAll('.category-card');
+});
+document.addEventListener('DOMContentLoaded', function() {
+const profileButton = document.getElementById('profileButton');
+const profileDropdown = document.getElementById('profileDropdown');
+let isDropdownOpen = false;
+profileButton.addEventListener('click', (e) => {
+e.stopPropagation();
+isDropdownOpen = !isDropdownOpen;
+profileDropdown.classList.toggle('hidden');
+});
+document.addEventListener('click', (e) => {
+if (isDropdownOpen && !profileDropdown.contains(e.target)) {
+profileDropdown.classList.add('hidden');
+isDropdownOpen = false;
+}
+});
+});
+  </script>
+  <!-- Login Prompt Modal -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" id="loginModal">
+   <div class="bg-white rounded-lg p-6 w-full max-w-sm text-center">
+    <h2 class="text-xl font-semibold mb-4">
+     Please login first
+    </h2>
+    <a class="inline-block mt-2 px-4 py-2 bg-primary text-white rounded-button hover:bg-primary/90 transition" href="Login-Page.html">
+     Login
+    </a>
+    <button class="mt-4 text-gray-500 hover:underline block w-full" onclick="closeModal()">
+     Cancel
+    </button>
+   </div>
+  </div>
+  <script>
+   document.querySelectorAll('a button').forEach(button => {
+  if (button.textContent.includes('Know More')) {
+    const parentLink = button.closest('a');
+    parentLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      showModal();
+    });
+  }
+});
+function showModal() {
+  document.getElementById('loginModal').classList.remove('hidden');
+}
+function closeModal() {
+  document.getElementById('loginModal').classList.add('hidden');
+}
+  </script>
+ </body>
+</html>

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarah Chen - Professional Photographer | KidsMentor</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#6366F1',secondary:'#F59E0B'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Nunito', sans-serif;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type="number"] {
+-moz-appearance: textfield;
+}
+.custom-radio {
+position: relative;
+display: inline-block;
+width: 20px;
+height: 20px;
+margin-right: 8px;
+}
+.custom-radio input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.radio-mark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #d1d5db;
+border-radius: 50%;
+transition: all 0.2s ease;
+}
+.custom-radio input:checked ~ .radio-mark {
+background-color: #fff;
+border-color: #6366F1;
+}
+.radio-mark:after {
+content: "";
+position: absolute;
+display: none;
+top: 50%;
+left: 50%;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: #6366F1;
+transform: translate(-50%, -50%);
+}
+.custom-radio input:checked ~ .radio-mark:after {
+display: block;
+}
+.time-slot {
+transition: all 0.2s ease;
+}
+.time-slot:hover {
+border-color: #6366F1;
+}
+.time-slot.selected {
+background-color: #EEF2FF;
+border-color: #6366F1;
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 44px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.switch-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 24px;
+}
+.switch-slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .switch-slider {
+background-color: #6366F1;
+}
+input:checked + .switch-slider:before {
+transform: translateX(20px);
+}
+.payment-method {
+transition: all 0.2s ease;
+}
+.payment-method:hover {
+border-color: #6366F1;
+}
+.payment-method.selected {
+background-color: #EEF2FF;
+border-color: #6366F1;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center">
+<a href="/" class="text-2xl font-['Pacifico'] text-primary">KidsMentor</a>
+</div>
+<div class="flex items-center space-x-6">
+<a href="https://readdy.ai/home/43dc0b4e-2b5e-4b91-abd5-a35e7933dbfb/8c75eb94-1f53-48cd-8571-093d83f6aeea" data-readdy="true" class="hidden md:flex items-center text-gray-800 font-medium hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-apps-line"></i>
+</div>
+Categories
+</a>
+<button class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
+<i class="ri-user-3-line ri-lg"></i>
+</button>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pb-16">
+<!-- Hero Section -->
+<section class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520photography%2520studio%2520with%2520soft%2520natural%2520lighting%252C%2520various%2520photography%2520equipment%2520including%2520cameras%252C%2520tripods%252C%2520and%2520lighting%2520setups.%2520The%2520studio%2520has%2520a%2520clean%2520modern%2520aesthetic%2520with%2520sample%2520photographs%2520displayed%2520on%2520the%2520walls.%2520The%2520atmosphere%2520is%2520creative%2520and%2520inspiring%2520for%2520young%2520photographers.&width=1280&height=400&seq=101&orientation=landscape" alt="Photography Studio" class="w-full h-64 md:h-80 object-cover object-top">
+<div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-gray-900/70 to-gray-900/30"></div>
+<div class="absolute top-4 left-4 flex items-center">
+<a href="https://readdy.ai/home/43dc0b4e-2b5e-4b91-abd5-a35e7933dbfb/16263727-19b7-404e-91c3-fcb611471bba" data-readdy="true" class="flex items-center justify-center w-10 h-10 bg-white/90 rounded-full shadow-md text-gray-700 hover:bg-white transition-colors">
+<i class="ri-arrow-left-s-line ri-lg"></i>
+</a>
+</div>
+<div class="absolute top-4 right-4 flex items-center">
+<button class="flex items-center justify-center w-10 h-10 bg-white/90 rounded-full shadow-md text-gray-700 hover:bg-white transition-colors">
+<i class="ri-share-line"></i>
+</button>
+</div>
+</section>
+<!-- Profile Section -->
+<section class="relative -mt-16 px-4">
+<div class="container mx-auto max-w-4xl">
+<div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520headshot%2520of%2520a%2520female%2520photographer%2520in%2520her%252030s%2520with%2520a%2520warm%2520smile%252C%2520looking%2520directly%2520at%2520camera.%2520Clean%2520studio%2520background.&width=150&height=150&seq=102&orientation=squarish" alt="Sarah Chen" class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover object-top border-4 border-white shadow-md">
+<div class="flex-1">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div>
+<h1 class="text-2xl md:text-3xl font-bold text-gray-900">Sarah Chen</h1>
+<p class="text-lg text-gray-600">Professional Photographer</p>
+<div class="flex items-center mt-2 space-x-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+<div class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></div>
+Available Now
+</span>
+<div class="flex items-center text-amber-500">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+<span class="ml-1 text-gray-700 text-sm">4.8 (124 reviews)</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<a href="#" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 text-gray-600 hover:border-primary hover:text-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 text-gray-600 hover:border-primary hover:text-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 text-gray-600 hover:border-primary hover:text-primary transition-colors">
+<i class="ri-global-line"></i>
+</a>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Portrait Photography</span>
+<span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Landscape Photography</span>
+<span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Beginner Friendly</span>
+<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Digital Editing</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Sections -->
+<section class="mt-8 px-4">
+<div class="container mx-auto max-w-4xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Left Column (About & Experience) -->
+<div class="md:col-span-2">
+<!-- About Section -->
+<div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
+<h2 class="text-xl font-bold text-gray-900 mb-4">About Sarah</h2>
+<p class="text-gray-700 mb-4">
+I'm a professional photographer with over 10 years of experience capturing moments that tell powerful stories. My passion for photography began when I was just 12 years old, which is why I'm especially passionate about teaching young photographers how to develop their own unique visual voice.
+</p>
+<p class="text-gray-700 mb-4">
+I specialize in portrait and landscape photography, with a particular focus on natural lighting techniques. My work has been featured in National Geographic, Vogue, and various photography exhibitions across North America.
+</p>
+<p class="text-gray-700">
+When teaching children, I focus on making photography fun and accessible while building a strong foundation of technical skills. I believe every child has a unique perspective to share with the world, and I'm here to help them express that vision through photography.
+</p>
+</div>
+<!-- Experience & Achievements -->
+<div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
+<h2 class="text-xl font-bold text-gray-900 mb-4">Experience & Achievements</h2>
+<div class="space-y-6">
+<div class="flex">
+<div class="flex-shrink-0 mr-4">
+<div class="w-10 h-10 flex items-center justify-center bg-indigo-100 text-primary rounded-full">
+<i class="ri-award-fill"></i>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Award-Winning Photographer</h3>
+<p class="text-gray-700">
+Winner of the 2023 International Photography Awards in the Portrait Category and recipient of the Young Photographer Mentor Award for my work with children.
+</p>
+</div>
+</div>
+<div class="flex">
+<div class="flex-shrink-0 mr-4">
+<div class="w-10 h-10 flex items-center justify-center bg-indigo-100 text-primary rounded-full">
+<i class="ri-gallery-fill"></i>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Published Photographer</h3>
+<p class="text-gray-700">
+My work has been featured in National Geographic, Vogue, and various photography exhibitions across North America. I've published two books on photography techniques for beginners.
+</p>
+</div>
+</div>
+<div class="flex">
+<div class="flex-shrink-0 mr-4">
+<div class="w-10 h-10 flex items-center justify-center bg-indigo-100 text-primary rounded-full">
+<i class="ri-graduation-cap-fill"></i>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Educational Background</h3>
+<p class="text-gray-700">
+MFA in Photography from Rhode Island School of Design and a certification in Child Education from the International Teaching Association.
+</p>
+</div>
+</div>
+<div class="flex">
+<div class="flex-shrink-0 mr-4">
+<div class="w-10 h-10 flex items-center justify-center bg-indigo-100 text-primary rounded-full">
+<i class="ri-user-heart-fill"></i>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Teaching Approach</h3>
+<p class="text-gray-700">
+I believe in a hands-on, project-based approach that makes learning photography fun and engaging. My teaching style adapts to each child's interests and learning pace, ensuring they build confidence while developing technical skills.
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Reviews Section -->
+<div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold text-gray-900">Reviews</h2>
+<div class="flex items-center text-amber-500">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+<span class="ml-1 text-gray-700 font-medium">4.8</span>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Review 1 -->
+<div class="border-b border-gray-100 pb-6">
+<div class="flex items-start">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520headshot%2520of%2520a%2520woman%2520in%2520her%252040s%2520with%2520a%2520friendly%2520smile%252C%2520looking%2520directly%2520at%2520camera.%2520Clean%2520studio%2520background.&width=50&height=50&seq=103&orientation=squarish" alt="Jennifer" class="w-10 h-10 rounded-full object-cover object-top mr-4">
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="font-semibold text-gray-900">Jennifer Martinez</h4>
+<span class="text-sm text-gray-500">April 15, 2025</span>
+</div>
+<div class="flex items-center text-amber-500 mt-1">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<p class="mt-2 text-gray-700">
+Sarah is an incredible mentor for my 12-year-old daughter. She has a natural way of explaining complex photography concepts in terms that are easy to understand. My daughter looks forward to her sessions every week and has shown remarkable improvement in her photography skills!
+</p>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="border-b border-gray-100 pb-6">
+<div class="flex items-start">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520headshot%2520of%2520a%2520man%2520in%2520his%252030s%2520with%2520a%2520friendly%2520smile%252C%2520looking%2520directly%2520at%2520camera.%2520Clean%2520studio%2520background.&width=50&height=50&seq=104&orientation=squarish" alt="Michael" class="w-10 h-10 rounded-full object-cover object-top mr-4">
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="font-semibold text-gray-900">Michael Thompson</h4>
+<span class="text-sm text-gray-500">March 28, 2025</span>
+</div>
+<div class="flex items-center text-amber-500 mt-1">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-line"></i>
+</div>
+<p class="mt-2 text-gray-700">
+We booked Sarah for a group session with three kids (ages 10-14) who were interested in photography. She was patient, engaging, and tailored the lesson to each child's interest and skill level. The kids came away excited about photography and with actual skills they could use right away.
+</p>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div>
+<div class="flex items-start">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520headshot%2520of%2520a%2520woman%2520in%2520her%252050s%2520with%2520a%2520friendly%2520smile%252C%2520looking%2520directly%2520at%2520camera.%2520Clean%2520studio%2520background.&width=50&height=50&seq=105&orientation=squarish" alt="Patricia" class="w-10 h-10 rounded-full object-cover object-top mr-4">
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="font-semibold text-gray-900">Patricia Wilson</h4>
+<span class="text-sm text-gray-500">February 12, 2025</span>
+</div>
+<div class="flex items-center text-amber-500 mt-1">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+<p class="mt-2 text-gray-700">
+My son has been taking lessons with Sarah for 3 months now, and the transformation in his photography is remarkable. She's not just teaching him technical skills but also helping him develop his own creative style. Worth every penny!
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 text-center">
+<button class="text-primary font-medium hover:text-indigo-700 transition-colors">
+View all 124 reviews
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column (Booking) -->
+<div class="md:col-span-1">
+<div class="sticky top-24">
+<!-- Booking Card -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden mb-6">
+<div class="p-6">
+<h2 class="text-xl font-bold text-gray-900 mb-4">Book a Session</h2>
+<!-- Session Type -->
+<div class="mb-6">
+<h3 class="font-medium text-gray-900 mb-3">Session Type</h3>
+<div class="space-y-2">
+<label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:border-primary transition-colors">
+<div class="custom-radio">
+<input type="radio" name="session-type" checked>
+<span class="radio-mark"></span>
+</div>
+<div>
+<span class="font-medium text-gray-900">One-on-one Session</span>
+<p class="text-sm text-gray-500">Personalized attention for your child</p>
+</div>
+</label>
+<label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:border-primary transition-colors">
+<div class="custom-radio">
+<input type="radio" name="session-type">
+<span class="radio-mark"></span>
+</div>
+<div>
+<span class="font-medium text-gray-900">Group Session</span>
+<p class="text-sm text-gray-500">Up to 3 children (per child rate)</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Session Duration -->
+<div class="mb-6">
+<h3 class="font-medium text-gray-900 mb-3">Session Duration</h3>
+<div class="grid grid-cols-3 gap-2">
+<div class="time-slot selected text-center p-3 border border-gray-200 rounded-lg cursor-pointer">
+<div class="font-medium text-gray-900">30 min</div>
+<div class="text-primary font-bold mt-1">$30</div>
+</div>
+<div class="time-slot text-center p-3 border border-gray-200 rounded-lg cursor-pointer">
+<div class="font-medium text-gray-900">60 min</div>
+<div class="text-primary font-bold mt-1">$55</div>
+</div>
+<div class="time-slot text-center p-3 border border-gray-200 rounded-lg cursor-pointer">
+<div class="font-medium text-gray-900">90 min</div>
+<div class="text-primary font-bold mt-1">$75</div>
+</div>
+</div>
+</div>
+<!-- Date Selection -->
+<div class="mb-6">
+<h3 class="font-medium text-gray-900 mb-3">Select Date</h3>
+<div class="relative">
+<input type="date" class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+</div>
+<!-- Time Slots -->
+<div class="mb-6">
+<h3 class="font-medium text-gray-900 mb-3">Available Time Slots</h3>
+<div class="grid grid-cols-3 gap-2">
+<div class="time-slot text-center p-2 border border-gray-200 rounded-lg cursor-pointer">
+<div class="text-sm font-medium text-gray-900">9:00 AM</div>
+</div>
+<div class="time-slot selected text-center p-2 border border-gray-200 rounded-lg cursor-pointer">
+<div class="text-sm font-medium text-gray-900">10:30 AM</div>
+</div>
+<div class="time-slot text-center p-2 border border-gray-200 rounded-lg cursor-pointer">
+<div class="text-sm font-medium text-gray-900">1:00 PM</div>
+</div>
+<div class="time-slot text-center p-2 border border-gray-200 rounded-lg cursor-pointer">
+<div class="text-sm font-medium text-gray-900">2:30 PM</div>
+</div>
+<div class="time-slot text-center p-2 border border-gray-200 rounded-lg cursor-pointer">
+<div class="text-sm font-medium text-gray-900">4:00 PM</div>
+</div>
+<div class="time-slot text-center p-2 border border-gray-200 rounded-lg cursor-pointer">
+<div class="text-sm font-medium text-gray-900">5:30 PM</div>
+</div>
+</div>
+</div>
+<!-- Equipment -->
+<div class="mb-6">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-medium text-gray-900">Equipment Needed</h3>
+<label class="custom-switch">
+<input type="checkbox">
+<span class="switch-slider"></span>
+</label>
+</div>
+<p class="text-sm text-gray-500">
+Sarah can provide a camera and basic equipment for the session (+$15)
+</p>
+</div>
+<!-- Total -->
+<div class="flex items-center justify-between py-4 border-t border-gray-100">
+<span class="font-medium text-gray-900">Total</span>
+<span class="text-xl font-bold text-gray-900">$30.00</span>
+</div>
+</div>
+</div>
+<!-- Payment Methods -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden">
+<div class="p-6">
+<h2 class="text-xl font-bold text-gray-900 mb-4">Payment Method</h2>
+<div class="space-y-3 mb-6">
+<div class="payment-method selected flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-blue-600">
+<i class="ri-bank-card-fill ri-lg"></i>
+</div>
+<span class="font-medium text-gray-900">Credit/Debit Card</span>
+</div>
+<div class="payment-method flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-blue-500">
+<i class="ri-paypal-fill ri-lg"></i>
+</div>
+<span class="font-medium text-gray-900">PayPal</span>
+</div>
+<div class="payment-method flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-black">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+<span class="font-medium text-gray-900">Apple Pay</span>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="mb-6">
+<label class="block text-sm font-medium text-gray-700 mb-2">Promo Code</label>
+<div class="flex">
+<input type="text" placeholder="Enter code" class="flex-1 p-3 border border-gray-200 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+<button class="bg-gray-100 text-gray-700 px-4 py-3 !rounded-r-button font-medium hover:bg-gray-200 transition-colors whitespace-nowrap">Apply</button>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">
+Book Session
+</button>
+<p class="text-xs text-gray-500 text-center mt-4">
+By booking, you agree to our <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Cancellation Policy</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<a href="/" class="text-2xl font-['Pacifico'] text-white mb-4 block">KidsMentor</a>
+<p class="text-gray-400 mb-4">Connecting curious kids with inspiring mentors in a safe, supervised environment.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-facebook-fill ri-lg"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-instagram-fill ri-lg"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-linkedin-fill ri-lg"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="/" class="text-gray-400 hover:text-white transition-colors">Find a Mentor</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Become a Mentor</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Gift Cards</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-4">Resources</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Safety Guidelines</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Parent Resources</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Support</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-4">Subscribe</h3>
+<p class="text-gray-400 mb-4">Get weekly updates on new mentors and educational resources</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" placeholder="Your email" class="bg-gray-700 text-white px-4 py-2 rounded-l-lg w-full border-none focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+<button type="submit" class="bg-primary text-white px-4 py-2 !rounded-r-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Subscribe</button>
+</div>
+</form>
+<div class="flex space-x-3">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-visa-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-mastercard-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-paypal-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 KidsMentor. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Time slot selection
+const timeSlots = document.querySelectorAll('.time-slot');
+timeSlots.forEach(slot => {
+slot.addEventListener('click', function() {
+// For session duration
+if (this.parentElement.parentElement.classList.contains('mb-6')) {
+document.querySelectorAll('.time-slot').forEach(s => {
+if (s.parentElement.parentElement.classList.contains('mb-6')) {
+s.classList.remove('selected');
+}
+});
+this.classList.add('selected');
+// Update total price based on selection
+const price = this.querySelector('.text-primary').textContent;
+document.querySelector('.flex.items-center.justify-between.py-4 .text-xl').textContent = price;
+} else {
+// For time selection
+document.querySelectorAll('.time-slot').forEach(s => {
+if (!s.parentElement.parentElement.classList.contains('mb-6')) {
+s.classList.remove('selected');
+}
+});
+this.classList.add('selected');
+}
+});
+});
+// Payment method selection
+const paymentMethods = document.querySelectorAll('.payment-method');
+paymentMethods.forEach(method => {
+method.addEventListener('click', function() {
+paymentMethods.forEach(m => m.classList.remove('selected'));
+this.classList.add('selected');
+});
+});
+});
+</script>
+</body>
+</html>

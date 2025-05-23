@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photography Mentors - KidsMentor</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#6366F1',secondary:'#F59E0B'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Nunito', sans-serif;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-checkbox {
+position: relative;
+display: inline-block;
+width: 20px;
+height: 20px;
+margin-right: 8px;
+}
+.custom-checkbox input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+transition: all 0.2s ease;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #6366F1;
+border-color: #6366F1;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 6px;
+top: 2px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.mentor-card {
+transition: all 0.3s ease;
+}
+.mentor-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.filter-dropdown {
+position: relative;
+}
+.filter-dropdown-content {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+background-color: white;
+border: 1px solid #e5e7eb;
+border-radius: 0 0 8px 8px;
+z-index: 10;
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.filter-dropdown.active .filter-dropdown-content {
+display: block;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center">
+<a href="/" class="text-2xl font-['Pacifico'] text-primary">KidsMentor</a>
+</div>
+<div class="flex items-center space-x-6">
+<a href="Mentor-landing.html" data-readdy="true" class="hidden md:flex items-center text-gray-800 font-medium hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-apps-line"></i>
+</div>
+Categories
+</a>
+<button class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
+<i class="ri-user-3-line ri-lg"></i>
+</button>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+</header>
+<!-- Category Header -->
+<section class="bg-gradient-to-r from-indigo-50 to-indigo-100 py-12">
+<div class="container mx-auto px-4">
+<div class="flex items-center mb-4">
+<a href="/" class="text-gray-600 hover:text-primary transition-colors">Home</a>
+<span class="mx-2 text-gray-400">/</span>
+<span class="text-primary">Photography</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">Photography Mentors</h1>
+<p class="text-lg text-gray-700 mb-2">Connect with experienced photographers who can guide your child's creative journey</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="bg-white text-gray-700 text-sm px-3 py-1 rounded-full shadow-sm">12 Mentors Available</span>
+<span class="bg-white text-gray-700 text-sm px-3 py-1 rounded-full shadow-sm">Ages 8-16</span>
+<span class="bg-white text-gray-700 text-sm px-3 py-1 rounded-full shadow-sm">Beginner to Advanced</span>
+</div>
+</div>
+</section>
+<!-- Filter Section -->
+<section class="py-8">
+<div class="container mx-auto px-4">
+<div class="bg-white rounded-xl shadow-sm p-6">
+<div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
+<div class="flex-1">
+<div class="relative">
+<input type="text" placeholder="Search photography mentors..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+<div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="filter-dropdown">
+<button class="flex items-center justify-between bg-white border border-gray-200 rounded-lg px-4 py-2 min-w-[160px] text-sm" onclick="toggleDropdown('experienceDropdown')">
+<span>Experience Level</span>
+<i class="ri-arrow-down-s-line ml-2"></i>
+</button>
+<div id="experienceDropdown" class="filter-dropdown-content p-2">
+<label class="flex items-center p-2 hover:bg-gray-50 rounded cursor-pointer">
+<div class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</div>
+<span>Beginner Friendly</span>
+</label>
+<label class="flex items-center p-2 hover:bg-gray-50 rounded cursor-pointer">
+<div class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</div>
+<span>Intermediate</span>
+</label>
+<label class="flex items-center p-2 hover:bg-gray-50 rounded cursor-pointer">
+<div class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</div>
+<span>Advanced</span>
+</label>
+</div>
+</div>
+<div class="filter-dropdown">
+<button class="flex items-center justify-between bg-white border border-gray-200 rounded-lg px-4 py-2 min-w-[160px] text-sm" onclick="toggleDropdown('priceDropdown')">
+<span>Price Range</span>
+<i class="ri-arrow-down-s-line ml-2"></i>
+</button>
+<div id="priceDropdown" class="filter-dropdown-content p-2">
+<label class="flex items-center p-2 hover:bg-gray-50 rounded cursor-pointer">
+<div class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</div>
+<span>$0 - $25</span>
+</label>
+<label class="flex items-center p-2 hover:bg-gray-50 rounded cursor-pointer">
+<div class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</div>
+<span>$26 - $50</span>
+</label>
+<label class="flex items-center p-2 hover:bg-gray-50 rounded cursor-pointer">
+<div class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</div>
+<span>$51+</span>
+</label>
+</div>
+</div>
+<div class="filter-dropdown">
+<button class="flex items-center justify-between bg-white border border-gray-200 rounded-lg px-4 py-2 min-w-[160px] text-sm" onclick="toggleDropdown('availabilityDropdown')">
+<span>Availability</span>
+<i class="ri-arrow-down-s-line ml-2"></i>
+</button>
+<div id="availabilityDropdown" class="filter-dropdown-content p-2">
+<label class="flex items-center p-2 hover:bg-gray-50 rounded cursor-pointer">
+<div class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</div>
+<span>Weekdays</span>
+</label>
+<label class="flex items-center p-2 hover:bg-gray-50 rounded cursor-pointer">
+<div class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</div>
+<span>Weekends</span>
+</label>
+<label class="flex items-center p-2 hover:bg-gray-50 rounded cursor-pointer">
+<div class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</div>
+<span>Evenings</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mentor Listings -->
+<section class="py-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Mentor 1 -->
+<div class="mentor-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520portrait%2520of%2520a%2520female%2520photographer%2520in%2520her%252030s%2520with%2520a%2520warm%2520smile%252C%2520holding%2520a%2520professional%2520camera%2520in%2520a%2520photography%2520studio%2520setting.%2520Natural%252C%2520professional%2520lighting%2520creating%2520an%2520approachable%2520yet%2520expert%2520impression.&width=400&height=300&seq=16&orientation=landscape" alt="Sarah Chen" class="w-full h-48 object-cover object-top">
+<div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">Available</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520headshot%2520of%2520a%2520female%2520photographer%2520in%2520her%252030s%2520with%2520a%2520warm%2520smile%252C%2520looking%2520directly%2520at%2520camera.%2520Clean%2520studio%2520background.&width=100&height=100&seq=17&orientation=squarish" alt="Sarah" class="w-16 h-16 rounded-full object-cover object-top border-2 border-primary">
+<div class="ml-4">
+<h3 class="text-xl font-bold text-gray-900">Sarah Chen</h3>
+<p class="text-gray-600">Professional Photographer</p>
+</div>
+</div>
+<div class="flex flex-wrap mb-4 gap-2">
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Portrait</span>
+<span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Landscape</span>
+<span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Beginner Friendly</span>
+</div>
+<p class="text-gray-700 mb-4">Passionate about teaching young photographers the art of visual storytelling. Specializes in nature and portrait photography for beginners.</p>
+<div class="flex items-center mb-4">
+<a href="https://linkedin.com/in/sarahchen" target="_blank" class="flex items-center text-blue-600 hover:text-blue-700">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-linkedin-fill"></i>
+</div>
+<span class="text-sm">View LinkedIn Profile</span>
+</a>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-gray-900 font-bold">$30 <span class="text-gray-600 font-normal text-sm">/ 30 min</span></div>
+<a href="Mentor_Sarah-Chen.html" data-readdy="true">
+<button class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Book Session</button>
+</a>
+</div>
+</div>
+</div>
+<!-- Mentor 2 -->
+<div class="mentor-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520portrait%2520of%2520a%2520male%2520photographer%2520in%2520his%252040s%2520with%2520a%2520confident%2520expression%252C%2520holding%2520a%2520professional%2520camera%2520outdoors%2520with%2520natural%2520scenery%2520in%2520the%2520background.%2520Natural%2520lighting%2520creating%2520an%2520approachable%2520yet%2520expert%2520impression.&width=400&height=300&seq=18&orientation=landscape" alt="Marcus Johnson" class="w-full h-48 object-cover object-top">
+<div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">Available</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520headshot%2520of%2520a%2520male%2520photographer%2520in%2520his%252040s%2520with%2520a%2520confident%2520expression%252C%2520looking%2520directly%2520at%2520camera.%2520Clean%2520studio%2520background.&width=100&height=100&seq=19&orientation=squarish" alt="Marcus" class="w-16 h-16 rounded-full object-cover object-top border-2 border-primary">
+<div class="ml-4">
+<h3 class="text-xl font-bold text-gray-900">Marcus Johnson</h3>
+<p class="text-gray-600">Wildlife Photographer</p>
+</div>
+</div>
+<div class="flex flex-wrap mb-4 gap-2">
+<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Wildlife</span>
+<span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full">National Geographic</span>
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Intermediate</span>
+</div>
+<p class="text-gray-700 mb-4">Former National Geographic photographer with 15+ years of experience. Teaches children how to capture wildlife and nature through an artistic lens.</p>
+<div class="flex items-center mb-4">
+<a href="https://linkedin.com/in/marcusjohnson" target="_blank" class="flex items-center text-blue-600 hover:text-blue-700">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-linkedin-fill"></i>
+</div>
+<span class="text-sm">View LinkedIn Profile</span>
+</a>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-gray-900 font-bold">$45 <span class="text-gray-600 font-normal text-sm">/ 30 min</span></div>
+<a href="Mentor_Sarah-Chen.html" data-readdy="true">
+<button class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Book Session</button>
+</a>
+</div>
+</div>
+</div>
+<!-- Mentor 3 -->
+<div class="mentor-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520portrait%2520of%2520a%2520young%2520female%2520photographer%2520in%2520her%252020s%2520with%2520a%2520creative%2520style%252C%2520holding%2520a%2520vintage%2520film%2520camera%2520in%2520an%2520artistic%2520studio%2520setting.%2520Stylish%2520lighting%2520creating%2520a%2520modern%252C%2520trendy%2520impression.&width=400&height=300&seq=20&orientation=landscape" alt="Zoe Parker" class="w-full h-48 object-cover object-top">
+<div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full">Limited</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520headshot%2520of%2520a%2520young%2520female%2520photographer%2520in%2520her%252020s%2520with%2520a%2520creative%2520style%252C%2520looking%2520directly%2520at%2520camera.%2520Clean%2520studio%2520background.&width=100&height=100&seq=21&orientation=squarish" alt="Zoe" class="w-16 h-16 rounded-full object-cover object-top border-2 border-primary">
+<div class="ml-4">
+<h3 class="text-xl font-bold text-gray-900">Zoe Parker</h3>
+<p class="text-gray-600">Film Photographer</p>
+</div>
+</div>
+<div class="flex flex-wrap mb-4 gap-2">
+<span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Film</span>
+<span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Darkroom</span>
+<span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Advanced</span>
+</div>
+<p class="text-gray-700 mb-4">Specializes in teaching traditional film photography and darkroom techniques. Perfect for kids who want to learn the art of analog photography.</p>
+<div class="flex items-center mb-4">
+<a href="https://linkedin.com/in/zoeparker" target="_blank" class="flex items-center text-blue-600 hover:text-blue-700">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-linkedin-fill"></i>
+</div>
+<span class="text-sm">View LinkedIn Profile</span>
+</a>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-gray-900 font-bold">$40 <span class="text-gray-600 font-normal text-sm">/ 30 min</span></div>
+<a href="Mentor_Sarah-Chen.html" data-readdy="true">
+<button class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Book Session</button>
+</a>
+</div>
+</div>
+</div>
+<!-- Mentor 4 -->
+<div class="mentor-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520portrait%2520of%2520a%2520male%2520photographer%2520in%2520his%252030s%2520with%2520a%2520friendly%2520smile%252C%2520holding%2520a%2520smartphone%2520with%2520photography%2520apps%2520visible%2520on%2520screen.%2520Modern%2520urban%2520setting%2520with%2520bright%2520natural%2520lighting.&width=400&height=300&seq=22&orientation=landscape" alt="David Kim" class="w-full h-48 object-cover object-top">
+<div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">Available</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520headshot%2520of%2520a%2520male%2520photographer%2520in%2520his%252030s%2520with%2520a%2520friendly%2520smile%252C%2520looking%2520directly%2520at%2520camera.%2520Clean%2520studio%2520background.&width=100&height=100&seq=23&orientation=squarish" alt="David" class="w-16 h-16 rounded-full object-cover object-top border-2 border-primary">
+<div class="ml-4">
+<h3 class="text-xl font-bold text-gray-900">David Kim</h3>
+<p class="text-gray-600">Mobile Photography Expert</p>
+</div>
+</div>
+<div class="flex flex-wrap mb-4 gap-2">
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Mobile</span>
+<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Editing</span>
+<span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Beginner Friendly</span>
+</div>
+<p class="text-gray-700 mb-4">Teaches kids how to take amazing photos with just a smartphone. Covers composition, lighting, and mobile editing apps for creating stunning images.</p>
+<div class="flex items-center mb-4">
+<a href="https://linkedin.com/in/davidkim" target="_blank" class="flex items-center text-blue-600 hover:text-blue-700">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-linkedin-fill"></i>
+</div>
+<span class="text-sm">View LinkedIn Profile</span>
+</a>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-gray-900 font-bold">$25 <span class="text-gray-600 font-normal text-sm">/ 30 min</span></div>
+<a href="Mentor_Sarah-Chen.html" data-readdy="true">
+<button class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Book Session</button>
+</a>
+</div>
+</div>
+</div>
+<!-- Mentor 5 -->
+<div class="mentor-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520portrait%2520of%2520a%2520female%2520photographer%2520in%2520her%252040s%2520with%2520a%2520warm%2520expression%252C%2520in%2520a%2520family%2520portrait%2520studio%2520with%2520professional%2520lighting%2520equipment%2520visible.%2520The%2520setting%2520is%2520bright%2520and%2520welcoming%252C%2520perfect%2520for%2520family%2520photography.&width=400&height=300&seq=24&orientation=landscape" alt="Emily Rodriguez" class="w-full h-48 object-cover object-top">
+<div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">Available</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520headshot%2520of%2520a%2520female%2520photographer%2520in%2520her%252040s%2520with%2520a%2520warm%2520expression%252C%2520looking%2520directly%2520at%2520camera.%2520Clean%2520studio%2520background.&width=100&height=100&seq=25&orientation=squarish" alt="Emily" class="w-16 h-16 rounded-full object-cover object-top border-2 border-primary">
+<div class="ml-4">
+<h3 class="text-xl font-bold text-gray-900">Emily Rodriguez</h3>
+<p class="text-gray-600">Portrait Photographer</p>
+</div>
+</div>
+<div class="flex flex-wrap mb-4 gap-2">
+<span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Portraits</span>
+<span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Lighting</span>
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Intermediate</span>
+</div>
+<p class="text-gray-700 mb-4">Award-winning portrait photographer who loves teaching children how to capture personality in photos. Specializes in natural light and studio portraits.</p>
+<div class="flex items-center mb-4">
+<a href="https://linkedin.com/in/emilyrodriguez" target="_blank" class="flex items-center text-blue-600 hover:text-blue-700">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-linkedin-fill"></i>
+</div>
+<span class="text-sm">View LinkedIn Profile</span>
+</a>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-gray-900 font-bold">$35 <span class="text-gray-600 font-normal text-sm">/ 30 min</span></div>
+<a href="Mentor_Sarah-Chen.html" data-readdy="true">
+<button class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Book Session</button>
+</a>
+</div>
+</div>
+</div>
+<!-- Mentor 6 -->
+<div class="mentor-card bg-white rounded-xl shadow-md overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520portrait%2520of%2520a%2520male%2520photographer%2520in%2520his%252050s%2520with%2520a%2520distinguished%2520appearance%252C%2520in%2520a%2520fine%2520art%2520gallery%2520setting%2520with%2520black%2520and%2520white%2520photographs%2520displayed%2520on%2520the%2520walls.%2520The%2520lighting%2520is%2520dramatic%2520and%2520artistic.&width=400&height=300&seq=26&orientation=landscape" alt="Robert Thompson" class="w-full h-48 object-cover object-top">
+<div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">Booked</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%2520professional%2520headshot%2520of%2520a%2520male%2520photographer%2520in%2520his%252050s%2520with%2520a%2520distinguished%2520appearance%252C%2520looking%2520directly%2520at%2520camera.%2520Clean%2520studio%2520background.&width=100&height=100&seq=27&orientation=squarish" alt="Robert" class="w-16 h-16 rounded-full object-cover object-top border-2 border-primary">
+<div class="ml-4">
+<h3 class="text-xl font-bold text-gray-900">Robert Thompson</h3>
+<p class="text-gray-600">Fine Art Photographer</p>
+</div>
+</div>
+<div class="flex flex-wrap mb-4 gap-2">
+<span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Black & White</span>
+<span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Fine Art</span>
+<span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Advanced</span>
+</div>
+<p class="text-gray-700 mb-4">Gallery-represented fine art photographer who specializes in black and white photography. Teaches advanced concepts and artistic vision to older children.</p>
+<div class="flex items-center mb-4">
+<a href="https://linkedin.com/in/robertthompson" target="_blank" class="flex items-center text-blue-600 hover:text-blue-700">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-linkedin-fill"></i>
+</div>
+<span class="text-sm">View LinkedIn Profile</span>
+</a>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-gray-900 font-bold">$50 <span class="text-gray-600 font-normal text-sm">/ 30 min</span></div>
+<button class="bg-gray-300 text-gray-700 px-4 py-2 !rounded-button font-medium cursor-not-allowed whitespace-nowrap">Currently Full</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center mt-12">
+<nav class="flex items-center space-x-2">
+<a href="#" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-left-s-line"></i>
+</div>
+</a>
+<a href="#" class="px-3 py-2 rounded-lg bg-primary text-white">1</a>
+<a href="#" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">2</a>
+<a href="#" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">3</a>
+<a href="#" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-right-s-line"></i>
+</div>
+</a>
+</nav>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-16 bg-indigo-50">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Stay Updated on New Photography Mentors</h2>
+<p class="text-lg text-gray-700 max-w-2xl mx-auto mb-8">Get notified when new photography mentors join our platform</p>
+<div class="max-w-md mx-auto">
+<div class="flex">
+<input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 rounded-l-lg border-none focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+<button class="bg-primary text-white px-6 py-3 !rounded-r-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Subscribe</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<a href="/" class="text-2xl font-['Pacifico'] text-white mb-4 block">KidsMentor</a>
+<p class="text-gray-400 mb-4">Connecting curious kids with inspiring mentors in a safe, supervised environment.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-facebook-fill ri-lg"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-instagram-fill ri-lg"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-linkedin-fill ri-lg"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="/" class="text-gray-400 hover:text-white transition-colors">Find a Mentor</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Become a Mentor</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Gift Cards</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-4">Resources</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Safety Guidelines</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Parent Resources</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Support</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-4">Subscribe</h3>
+<p class="text-gray-400 mb-4">Get weekly updates on new mentors and educational resources</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" placeholder="Your email" class="bg-gray-700 text-white px-4 py-2 rounded-l-lg w-full border-none focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+<button type="submit" class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-opacity-90 transition-colors whitespace-nowrap">Subscribe</button>
+</div>
+</form>
+<div class="flex space-x-3">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-visa-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-mastercard-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-paypal-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 KidsMentor. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+function toggleDropdown(id) {
+const dropdown = document.getElementById(id);
+const parent = dropdown.parentElement;
+// Close all other dropdowns first
+document.querySelectorAll('.filter-dropdown').forEach(el => {
+if (el !== parent) {
+el.classList.remove('active');
+}
+});
+// Toggle current dropdown
+parent.classList.toggle('active');
+}
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+const dropdowns = document.querySelectorAll('.filter-dropdown');
+dropdowns.forEach(dropdown => {
+if (!dropdown.contains(event.target)) {
+dropdown.classList.remove('active');
+}
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Initialize checkboxes
+const checkboxes = document.querySelectorAll('.custom-checkbox input');
+checkboxes.forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+// Here you would add filter functionality
+console.log('Filter changed');
+});
+});
+});
+</script>
+</body>
+</html>

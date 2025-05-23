@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Analysis for Kids</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#1E3A8A',secondary:'#F0F7FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Poppins', sans-serif;
+}
+input[type="radio"] {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #e2e8f0;
+border-radius: 50%;
+outline: none;
+position: relative;
+}
+input[type="radio"]:checked {
+border-color: #1E3A8A;
+}
+input[type="radio"]:checked::before {
+content: "";
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 10px;
+height: 10px;
+background-color: #1E3A8A;
+border-radius: 50%;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+<nav class="bg-white shadow-sm">
+<div class="container mx-auto px-6">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center space-x-8">
+<a href="CAT4-Coding.html" data-readdy="true" class="text-gray-700 hover:text-primary transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-arrow-left-line ri-lg"></i>
+</div>
+</a>
+<a href="Post-Login-Landing.html" data-readdy="true" class="text-gray-700 hover:text-primary transition-colors font-medium">Home</a>
+<a href="Category_Post.html" data-readdy="true" class="text-gray-700 hover:text-primary transition-colors font-medium">Categories</a>
+</div>
+<div class="flex items-center">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
+<i class="ri-user-3-line text-gray-700 ri-lg"></i>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<header class="w-full relative">
+<div class="w-full h-[400px] relative overflow-hidden">
+<div style="background-image: url('https://ww2.kqed.org/app/uploads/sites/23/2012/11/Kids-computers.jpg');" class="absolute inset-0 bg-cover bg-center"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent"></div>
+<div class="container mx-auto px-6 relative h-full flex flex-col justify-center">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Data Analysis for Kids</h1>
+<div class="flex flex-wrap gap-3 mb-4">
+<span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-medium">Ages 5-10</span>
+<span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-medium">2-3 hours</span>
+<span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-medium">Instructor: Optional</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-6 py-12">
+<div class="flex flex-col lg:flex-row gap-10">
+<div class="lg:w-2/3">
+<section class="mb-12">
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<h2 class="text-2xl font-semibold mb-4 text-gray-800">Course Description</h2>
+<p class="text-gray-700 leading-relaxed mb-6">
+Embark on an exciting data journey designed specifically for young minds! This comprehensive course introduces children to the fundamentals of data analysis through engaging activities and hands-on projects. Students will learn key concepts including organizing data, creating charts and graphs, understanding statistical measures (mean, median, mode), and solving real-world problems using data analysis techniques. The course is structured to build a strong foundation in data concepts while fostering critical thinking and problem-solving skills.
+</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">#Charts</span>
+<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">#Graphs</span>
+<span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">#Statistics</span>
+<span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">#Excel</span>
+<span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">#ProblemSolving</span>
+</div>
+</div>
+</section>
+<section>
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<h2 class="text-2xl font-semibold mb-6 text-gray-800">What You'll Learn</h2>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-secondary rounded-full mr-3 flex-shrink-0">
+<i class="ri-file-chart-line text-primary ri-lg"></i>
+</div>
+<div>
+<h3 class="font-medium text-gray-800 mb-1">Data Analysis Basics</h3>
+<p class="text-gray-600 text-sm">Understand the importance of data analysis</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-secondary rounded-full mr-3 flex-shrink-0">
+<i class="ri-bar-chart-line text-primary ri-lg"></i>
+</div>
+<div>
+<h3 class="font-medium text-gray-800 mb-1">Charts and Graphs</h3>
+<p class="text-gray-600 text-sm">Learn to create and interpret different types of graphs</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-secondary rounded-full mr-3 flex-shrink-0">
+<i class="ri-function-line text-primary ri-lg"></i>
+</div>
+<div>
+<h3 class="font-medium text-gray-800 mb-1">Statistical Measures</h3>
+<p class="text-gray-600 text-sm">Master mean, median, and mode concepts</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-secondary rounded-full mr-3 flex-shrink-0">
+<i class="ri-pie-chart-line text-primary ri-lg"></i>
+</div>
+<div>
+<h3 class="font-medium text-gray-800 mb-1">Data Presentation</h3>
+<p class="text-gray-600 text-sm">Organize and present data effectively</p>
+</div>
+</div>
+</div>
+
+<div class="mt-10">
+<h2 class="text-xl font-semibold mb-4 text-gray-800">Course Curriculum</h2>
+<div class="space-y-4">
+<div class="border border-gray-200 rounded-lg p-4">
+<div class="flex items-center">
+<div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
+<span class="font-medium text-primary">1</span>
+</div>
+<h3 class="font-medium text-gray-800">Define data analysis and its applications</h3>
+</div>
+</div>
+<div class="border border-gray-200 rounded-lg p-4">
+<div class="flex items-center">
+<div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
+<span class="font-medium text-primary">2</span>
+</div>
+<h3 class="font-medium text-gray-800">Learn about charts and graphs</h3>
+</div>
+</div>
+<div class="border border-gray-200 rounded-lg p-4">
+<div class="flex items-center">
+<div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
+<span class="font-medium text-primary">3</span>
+</div>
+<h3 class="font-medium text-gray-800">Understand different types of data and their uses - Mean, Median, Mode</h3>
+</div>
+</div>
+<div class="border border-gray-200 rounded-lg p-4">
+<div class="flex items-center">
+<div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
+<span class="font-medium text-primary">4</span>
+</div>
+<h3 class="font-medium text-gray-800">Practice solving problems using data analysis techniques</h3>
+</div>
+</div>
+<div class="border border-gray-200 rounded-lg p-4">
+<div class="flex items-center">
+<div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
+<span class="font-medium text-primary">5</span>
+</div>
+<h3 class="font-medium text-gray-800">Learn the importance of financial data analysis</h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="mt-10">
+<h2 class="text-xl font-semibold mb-4 text-gray-800">Instructional Videos</h2>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="border border-gray-200 rounded-lg p-4 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 flex-shrink-0">
+<i class="ri-video-line text-red-500 ri-lg"></i>
+</div>
+<span class="text-gray-700">Mystery of Jellybeans</span>
+</div>
+<div class="border border-gray-200 rounded-lg p-4 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 flex-shrink-0">
+<i class="ri-video-line text-red-500 ri-lg"></i>
+</div>
+<span class="text-gray-700">Tally Marks</span>
+</div>
+<div class="border border-gray-200 rounded-lg p-4 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 flex-shrink-0">
+<i class="ri-video-line text-red-500 ri-lg"></i>
+</div>
+<span class="text-gray-700">Vertical Bar Graphs</span>
+</div>
+<div class="border border-gray-200 rounded-lg p-4 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 flex-shrink-0">
+<i class="ri-video-line text-red-500 ri-lg"></i>
+</div>
+<span class="text-gray-700">Vertical Bar Graphs in Excel</span>
+</div>
+<div class="border border-gray-200 rounded-lg p-4 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 flex-shrink-0">
+<i class="ri-video-line text-red-500 ri-lg"></i>
+</div>
+<span class="text-gray-700">Horizontal Bar Graphs</span>
+</div>
+<div class="border border-gray-200 rounded-lg p-4 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 flex-shrink-0">
+<i class="ri-video-line text-red-500 ri-lg"></i>
+</div>
+<span class="text-gray-700">Pie Chart</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+        <div class="lg:w-1/3">
+          <div class="bg-white rounded-lg shadow-sm p-6 sticky top-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-6">
+              Choose Your Learning Path
+            </h3>
+            <div class="space-y-6">
+              <div class="border border-gray-200 rounded-lg p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-800">
+                      Group Session with Instructor
+                    </h4>
+                    <p class="text-gray-600 text-sm mt-1">
+                      Interactive live sessions with expert guidance
+                    </p>
+                  </div>
+                  <span class="text-xl font-bold text-primary">₹999</span>
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="session-date"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                    >Available Sessions</label
+                  >
+                  <div class="relative">
+                    <select
+                      id="session-date"
+                      class="w-full border border-gray-300 rounded-button px-4 py-2.5 appearance-none bg-white text-gray-800 pr-10"
+                    >
+                      <option value="may-5">
+                        May 5, 2025 - 10:00 AM (12 spots)
+                      </option>
+                      <option value="may-12">
+                        May 12, 2025 - 2:00 PM (8 spots)
+                      </option>
+                      <option value="may-19">
+                        May 19, 2025 - 10:00 AM (15 spots)
+                      </option>
+                      <option value="may-26">
+                        May 26, 2025 - 2:00 PM (5 spots)
+                      </option>
+                    </select>
+                    <div
+                      class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none"
+                    >
+                      <i class="ri-arrow-down-s-line text-gray-500"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-6">
+                  <label
+                    for="timezone"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                    >Time Zone</label
+                  >
+                  <div class="relative">
+                    <select
+                      id="timezone"
+                      class="w-full border border-gray-300 rounded-button px-4 py-2.5 appearance-none bg-white text-gray-800 pr-10"
+                    >
+                      <option value="ist">Indian Standard Time (IST)</option>
+                      <option value="pst">Pacific Standard Time (PST)</option>
+                      <option value="est">Eastern Standard Time (EST)</option>
+                      <option value="gmt">Greenwich Mean Time (GMT)</option>
+                    </select>
+                    <div
+                      class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none"
+                    >
+                      <i class="ri-arrow-down-s-line text-gray-500"></i>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-button transition-colors whitespace-nowrap"
+                >
+                  Book Session
+                </button>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-6">
+                <div class="flex justify-between items-start mb-6">
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-800">
+                      Self-Paced Course
+                    </h4>
+                    <p class="text-gray-600 text-sm mt-1">
+                      Learn at your own pace with lifetime access
+                    </p>
+                  </div>
+                  <span class="text-xl font-bold text-primary">₹499</span>
+                </div>
+                <button
+                  class="w-full bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-button transition-colors whitespace-nowrap"
+                >
+                  Enroll Now
+                </button>
+              </div>
+            </div>
+            <div class="mt-6">
+              <div class="bg-secondary rounded-lg p-4">
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-6 h-6 flex-shrink-0 flex items-center justify-center mt-0.5"
+                  >
+                    <i class="ri-information-line text-primary"></i>
+                  </div>
+                  <div class="text-sm text-gray-700">
+                    <p class="font-medium mb-1">Why choose Group Sessions?</p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-600">
+                      <li>Live interaction with expert instructor</li>
+                      <li>Real-time feedback and guidance</li>
+                      <li>Collaborative learning environment</li>
+                      <li>Structured schedule for better engagement</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 flex items-center text-gray-500 text-sm">
+              <i class="ri-shield-check-line mr-1"></i>
+              <span>Secure payment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+<footer class="bg-gray-50 border-t border-gray-200 py-8">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="mb-4 md:mb-0">
+<p class="text-gray-600 text-sm">© 2025 Learning Platform. All rights reserved.</p>
+</div>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-facebook-fill ri-lg"></i>
+</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-twitter-fill ri-lg"></i>
+</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-instagram-fill ri-lg"></i>
+</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-linkedin-fill ri-lg"></i>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
+paymentOptions.forEach(option => {
+option.addEventListener('change', function() {
+const labels = document.querySelectorAll('label');
+labels.forEach(label => {
+label.classList.remove('border-primary');
+label.classList.add('border-gray-200');
+});
+this.closest('label').classList.remove('border-gray-200');
+this.closest('label').classList.add('border-primary');
+});
+});
+});
+</script>
+</body>
+</html>

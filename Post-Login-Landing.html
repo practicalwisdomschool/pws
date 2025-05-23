@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical Wisdom School - Dashboard</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4F46E5',secondary:'#10B981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: Georgia, serif;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=A%2520bright%252C%2520colorful%2520classroom%2520environment%2520with%2520empty%2520space%2520on%2520the%2520left%2520side%2520for%2520text.%2520On%2520the%2520right%2520side%252C%2520diverse%2520children%2520aged%25208-12%2520are%2520engaged%2520in%2520hands-on%2520learning%2520activities%2520like%2520robotics%252C%2520cooking%252C%2520and%2520teamwork%2520projects.%2520The%2520classroom%2520has%2520modern%2520educational%2520tools%252C%2520natural%2520light%252C%2520and%2520a%2520warm%2520inviting%2520atmosphere.%2520The%2520left%2520side%2520has%2520a%2520clean%252C%2520subtle%2520gradient%2520background%2520that%2520will%2520seamlessly%2520blend%2520with%2520text%2520overlay.&width=1600&height=800&seq=hero1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #4F46E5;
+}
+.course-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.floating-button {
+transition: all 0.3s ease;
+}
+.floating-button:hover {
+transform: scale(1.05);
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.custom-checkbox:checked {
+background-color: #4F46E5;
+border-color: #4F46E5;
+}
+.custom-checkbox:checked::after {
+content: '✓';
+color: white;
+font-size: 14px;
+}
+.search-input {
+background: transparent;
+}
+.search-input:focus {
+outline: none;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center">
+<a href="#" class="text-3xl font-['Pacifico'] text-primary">logo</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-primary font-medium transition-colors border-b-2 border-primary scroll-hero">Home</a>
+<a href="#offerings" class="text-gray-800 font-medium hover:text-primary transition-colors scroll-offerings">Offerings</a>
+<a href="#courses" class="text-gray-800 font-medium hover:text-primary transition-colors scroll-courses">Courses</a>
+<a href="#about" class="text-gray-800 font-medium hover:text-primary transition-colors scroll-about">About Us</a>
+<a href="#contact" class="text-gray-800 font-medium hover:text-primary transition-colors scroll-contact">Contact</a>
+</div>
+<div class="flex items-center space-x-4">
+<a href="Mentor-landing.html" data-readdy="true">
+<button class="bg-secondary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap hidden md:flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+Mentorship
+</button>
+</a>
+<div class="relative hidden md:block">
+<div class="flex items-center bg-gray-100 rounded-full px-3 py-2">
+<div class="w-5 h-5 flex items-center justify-center text-gray-500">
+<i class="ri-search-line"></i>
+</div>
+<input type="text" class="search-input bg-transparent border-none ml-2 w-40 text-sm" placeholder="Search courses...">
+</div>
+</div>
+<div class="relative">
+<button class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full hover:bg-gray-200 transition-colors relative">
+<i class="ri-shopping-cart-line"></i>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">2</span>
+</button>
+</div>
+<div class="relative hidden md:block">
+<button class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
+<i class="ri-notification-3-line"></i>
+</button>
+</div>
+<div class="relative hidden md:block">
+<button id="profileButton" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full hover:bg-gray-200 transition-colors overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520headshot%2520of%2520a%2520young%2520parent%2520with%2520a%2520warm%2520smile%252C%2520neutral%2520background%252C%2520casual%2520professional%2520attire%252C%2520friendly%2520expression%252C%2520high%2520quality%2520portrait%2520photo&width=100&height=100&seq=avatar1&orientation=squarish" alt="Profile" class="w-full h-full object-cover">
+</button>
+<div id="profileDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
+<a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-50">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-user-line"></i>
+</div>
+Profile
+</a>
+<a href="https://readdy.ai/home/43dc0b4e-2b5e-4b91-abd5-a35e7933dbfb/28b8baad-8b98-40a7-a8d7-61cdb8dfda3d" data-readdy="true" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-50">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-line-chart-line"></i>
+</div>
+Progress
+</a>
+<div class="border-t border-gray-100 my-1"></div>
+<a href="https://readdy.ai/home/43dc0b4e-2b5e-4b91-abd5-a35e7933dbfb/2459aabc-00ca-4a3c-a422-3c9aa058b98f" data-readdy="true" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-50">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-logout-box-line"></i>
+</div>
+Sign Out
+</a>
+</div>
+</div>
+<button class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-xl"></i>
+</button>
+</div>
+</div>
+</nav>
+<!-- Floating Button -->
+<div class="floating-button fixed bottom-6 right-6 z-40 hidden">
+<button class="bg-primary text-white px-4 py-3 !rounded-button shadow-lg font-medium hover:bg-opacity-90 transition-all whitespace-nowrap flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-calendar-line"></i>
+</div>
+Book a Demo Class
+</button>
+</div>
+<!-- Hero Section -->
+<section class="hero-section pt-32 pb-20 relative">
+<div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+<div class="container mx-auto px-4 relative z-10">
+<div class="w-full md:w-1/2 lg:w-5/12">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">Where Young Minds Grow with Real-World Skills</h1>
+<p class="text-lg text-gray-700 mb-8">Practical Wisdom School offers kids hands-on learning for life, career, and beyond.</p>
+<div class="flex flex-wrap gap-4">
+<button class="border-2 border-secondary text-secondary px-5 py-3 !rounded-button font-medium hover:bg-secondary hover:text-white transition-colors whitespace-nowrap flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-play-circle-line"></i>
+</div>
+Experience a Demo Class
+</button>
+<button class="bg-primary text-white px-5 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-calendar-line"></i>
+</div>
+Book a Demo Class
+</button>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- Offerings Section -->
+<section id= "offerings" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-900 mb-3">Our Offerings</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Choose the learning path that best suits your needs</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+<!-- Mentorship Card -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+<div class="h-48 relative overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520mentor%2520guiding%2520a%2520student%2520in%2520a%2520modern%2520office%2520setting%252C%2520with%2520natural%2520lighting%252C%2520both%2520looking%2520at%2520educational%2520materials%2520on%2520a%2520desk%252C%2520positive%2520learning%2520environment%252C%2520clean%2520minimal%2520background&width=600&height=400&seq=mentor1&orientation=landscape" alt="Mentorship" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h3 class="text-2xl font-bold text-white">Mentorship</h3>
+</div>
+</div>
+<div class="p-6">
+<p class="text-gray-700 mb-4">Get personalized guidance from experienced mentors who will help you navigate your learning journey and achieve your goals.</p>
+<ul class="space-y-3 mb-6">
+<li class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+1:1 Personal Guidance
+</li>
+<li class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+Customized Learning Path
+</li>
+<li class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+Regular Progress Tracking
+</li>
+</ul>
+<a href="Mentor-landing.html" data-readdy="true">
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap flex items-center justify-center">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-user-star-line"></i>
+</div>
+Start Mentorship
+</button>
+</a>
+</div>
+</div>
+<!-- Courses Card -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+<div class="h-48 relative overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Modern%2520classroom%2520with%2520students%2520engaged%2520in%2520learning%252C%2520bright%2520and%2520spacious%2520environment%252C%2520interactive%2520displays%252C%2520clean%2520minimal%2520background%252C%2520natural%2520lighting&width=600&height=400&seq=courses1&orientation=landscape" alt="Courses" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h3 class="text-2xl font-bold text-white">Courses</h3>
+</div>
+</div>
+<div class="p-6">
+<div class="space-y-6">
+<!-- School Partner -->
+<div>
+<h4 class="text-lg font-semibold text-gray-900 mb-2 flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2 text-secondary">
+<i class="ri-school-line"></i>
+</div>
+School Partner
+</h4>
+<p class="text-gray-600 mb-3">Integrate our curriculum into your school's program</p>
+</div>
+<!-- Direct to Parent -->
+<div class="border-t border-gray-100 pt-6">
+<h4 class="text-lg font-semibold text-gray-900 mb-2 flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2 text-secondary">
+<i class="ri-parent-line"></i>
+</div>
+Direct to Parent
+</h4>
+<p class="text-gray-600 mb-3">Enroll your child in our comprehensive courses</p>
+<a href="All-Courses-Post.html" data-readdy="true">
+<button class="w-full bg-secondary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap flex items-center justify-center">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-book-open-line"></i>
+</div>
+View Courses
+</button>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Courses Section -->
+<section id="courses" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-900 mb-3">Unlock a World of Practical Knowledge</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Discover our range of practical courses designed to equip children with essential skills for the future.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+<!-- Career -->
+<div class="course-card bg-white rounded shadow-md overflow-hidden transition-all duration-300">
+<div class="h-3 bg-blue-500"></div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+<i class="ri-briefcase-line ri-lg text-blue-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Career</h3>
+<p class="text-gray-700 font-medium mb-1">Professional Growth</p>
+<p class="text-gray-600 text-sm mb-4">Build essential skills for your future career path.</p>
+<a href="CAT1-Career.html" class="text-blue-500 font-medium inline-flex items-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Life Skills -->
+<div class="course-card bg-white rounded shadow-md overflow-hidden transition-all duration-300">
+<div class="h-3 bg-green-500"></div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-full mb-4">
+<i class="ri-mental-health-line ri-lg text-green-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Life Skills</h3>
+<p class="text-gray-700 font-medium mb-1">Personal Development</p>
+<p class="text-gray-600 text-sm mb-4">Master essential life skills for success.</p>
+<a href="CAT2-LifeSkills.html" class="text-green-500 font-medium inline-flex items-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- MS-Office Suite -->
+<div class="course-card bg-white rounded shadow-md overflow-hidden transition-all duration-300">
+<div class="h-3 bg-purple-500"></div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-full mb-4">
+<i class="ri-file-word-line ri-lg text-purple-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">MS-Office Suite</h3>
+<p class="text-gray-700 font-medium mb-1">Digital Productivity</p>
+<p class="text-gray-600 text-sm mb-4">Master essential office software skills.</p>
+<a href="CAT3-Microsoft.html" class="text-purple-500 font-medium inline-flex items-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Tech -->
+<div class="course-card bg-white rounded shadow-md overflow-hidden transition-all duration-300">
+<div class="h-3 bg-indigo-500"></div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-indigo-100 rounded-full mb-4">
+<i class="ri-code-line ri-lg text-indigo-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Tech</h3>
+<p class="text-gray-700 font-medium mb-1">Digital Literacy</p>
+<p class="text-gray-600 text-sm mb-4">Learn essential technology skills.</p>
+<a href="CAT4-Coding.html" class="text-indigo-500 font-medium inline-flex items-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Health and Wellness -->
+<div class="course-card bg-white rounded shadow-md overflow-hidden transition-all duration-300">
+<div class="h-3 bg-rose-500"></div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-rose-100 rounded-full mb-4">
+<i class="ri-heart-pulse-line ri-lg text-rose-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Health and Wellness</h3>
+<p class="text-gray-700 font-medium mb-1">Healthy Living</p>
+<p class="text-gray-600 text-sm mb-4">Learn to maintain physical and mental well-being.</p>
+<a href="CAT5-Health.html" class="text-rose-500 font-medium inline-flex items-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Social Quotient -->
+<div class="course-card bg-white rounded shadow-md overflow-hidden transition-all duration-300">
+<div class="h-3 bg-amber-500"></div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-amber-100 rounded-full mb-4">
+<i class="ri-team-line ri-lg text-amber-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Social Quotient</h3>
+<p class="text-gray-700 font-medium mb-1">Social Intelligence</p>
+<p class="text-gray-600 text-sm mb-4">Develop strong interpersonal skills.</p>
+<a href="CAT6-Social.html" class="text-amber-500 font-medium inline-flex items-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Everyday Finance -->
+<div class="course-card bg-white rounded shadow-md overflow-hidden transition-all duration-300">
+<div class="h-3 bg-cyan-500"></div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-cyan-100 rounded-full mb-4">
+<i class="ri-wallet-3-line ri-lg text-cyan-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Everyday Finance</h3>
+<p class="text-gray-700 font-medium mb-1">Personal Finance</p>
+<p class="text-gray-600 text-sm mb-4">Master daily financial management.</p>
+<a href="CAT7-Everyday-Finance.html" class="text-cyan-500 font-medium inline-flex items-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Core Finance -->
+<div class="course-card bg-white rounded shadow-md overflow-hidden transition-all duration-300">
+<div class="h-3 bg-emerald-500"></div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-emerald-100 rounded-full mb-4">
+<i class="ri-bank-line ri-lg text-emerald-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Core Finance</h3>
+<p class="text-gray-700 font-medium mb-1">Financial Literacy</p>
+<p class="text-gray-600 text-sm mb-4">Understand fundamental financial concepts.</p>
+<a href="CAT8-Core-Finance.html" class="text-emerald-500 font-medium inline-flex items-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Home and Lifestyle -->
+<div class="course-card bg-white rounded shadow-md overflow-hidden transition-all duration-300">
+<div class="h-3 bg-fuchsia-500"></div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-fuchsia-100 rounded-full mb-4">
+<i class="ri-home-heart-line ri-lg text-fuchsia-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Home and Lifestyle</h3>
+<p class="text-gray-700 font-medium mb-1">Life Management</p>
+<p class="text-gray-600 text-sm mb-4">Learn essential home management skills.</p>
+<a href="CAT9-Home.html" class="text-fuchsia-500 font-medium inline-flex items-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- ESG -->
+<div class="course-card bg-white rounded shadow-md overflow-hidden transition-all duration-300">
+<div class="h-3 bg-teal-500"></div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-teal-100 rounded-full mb-4">
+<i class="ri-earth-line ri-lg text-teal-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">ESG</h3>
+<p class="text-gray-700 font-medium mb-1">Sustainability</p>
+<p class="text-gray-600 text-sm mb-4">Learn about environmental and social responsibility.</p>
+<a href="CAT10-ESG.html" class="text-teal-500 font-medium inline-flex items-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-10">
+<a href="Category_Post.html" data-readdy="true">
+<button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">View All Courses</button>
+</a>
+</div>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-16">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-900 mb-3">Why Practical Wisdom?</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Our mission is to empower children with real-world skills that prepare them for future success.</p>
+</div>
+<div class="flex flex-col lg:flex-row items-center gap-10">
+<div class="w-full lg:w-1/2">
+<div class="bg-gray-50 p-6 rounded-lg border border-gray-100 mb-8">
+<p class="text-gray-700">At Practical Wisdom School, we believe that education should extend beyond textbooks. We focus on developing practical skills that children can apply throughout their lives, fostering independence, confidence, and a love for lifelong learning.</p>
+</div>
+<div class="space-y-10">
+<div class="flex gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full flex-shrink-0">
+<i class="ri-hand-heart-line ri-lg text-blue-500"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-1">Hands-On Learning</h3>
+<p class="text-gray-600">Our interactive approach ensures children learn by doing, making complex concepts easy to understand and remember.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-full flex-shrink-0">
+<i class="ri-lightbulb-line ri-lg text-green-500"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-1">Fun Projects</h3>
+<p class="text-gray-600">Learning becomes enjoyable through engaging projects that challenge creativity and problem-solving abilities.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-full flex-shrink-0">
+<i class="ri-rocket-line ri-lg text-purple-500"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-1">Future-Ready Skills</h3>
+<p class="text-gray-600">We prepare children for tomorrow's challenges with skills that are increasingly valuable in our rapidly changing world.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%2520bright%252C%2520colorful%2520classroom%2520setting%2520where%2520diverse%2520children%2520aged%25208-12%2520are%2520engaged%2520in%2520project-based%2520learning.%2520Some%2520kids%2520are%2520working%2520with%2520technology%2520like%2520tablets%2520and%2520simple%2520robots%252C%2520others%2520are%2520collaborating%2520on%2520a%2520poster%2520presentation%252C%2520and%2520some%2520are%2520engaged%2520in%2520a%2520cooking%2520activity.%2520The%2520teacher%2520is%2520guiding%2520students%2520with%2520a%2520supportive%2520approach.%2520The%2520atmosphere%2520is%2520joyful%2520and%2520productive%2520with%2520natural%2520lighting%2520and%2520modern%2520educational%2520tools%2520visible.&width=600&height=450&seq=about1&orientation=landscape" alt="Project-based learning" class="w-full h-auto rounded-lg shadow-lg">
+<div class="flex justify-center mt-8 gap-8">
+<div class="text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-blue-100 rounded-full mb-2">
+<i class="ri-award-line ri-xl text-blue-500"></i>
+</div>
+<p class="font-medium text-gray-900">Confidence</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-green-100 rounded-full mb-2">
+<i class="ri-brain-line ri-xl text-green-500"></i>
+</div>
+<p class="font-medium text-gray-900">Critical Thinking</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-purple-100 rounded-full mb-2">
+<i class="ri-user-star-line ri-xl text-purple-500"></i>
+</div>
+<p class="font-medium text-gray-900">Leadership</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Demo Section
+<section class="py-12 bg-gradient-to-r from-primary to-indigo-600 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-24 bg-white" style="clip-path: ellipse(70% 100% at 50% 0%);"></div>
+<div class="container mx-auto px-4 text-center relative z-10">
+<h2 class="text-3xl font-bold text-white mb-4">Curious? Experience a Demo Class for Free!</h2>
+<p class="text-white text-opacity-90 max-w-2xl mx-auto mb-8">See firsthand how our interactive teaching methods engage children and make learning practical skills fun and effective.</p>
+<button class="bg-white text-primary px-6 py-3 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap flex items-center mx-auto">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-calendar-line"></i>
+</div>
+Book a Demo Class
+</button>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-24 bg-white" style="clip-path: ellipse(70% 100% at 50% 100%);"></div>
+</section> -->
+<section id="contact" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-3">Get in Touch with Us!</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Have questions about our courses or want to learn more? We'd love to hear from you.
+      </p>
+    </div>
+
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+      <form action="https://api.web3forms.com/submit" method="POST" onsubmit="return handleSubmit(event)">
+        <input type="hidden" name="access_key" value="398a01a9-d93b-4089-8fdc-1746e6e979b1">
+
+        <!-- Category Dropdown -->
+        <div class="mb-6">
+          <label for="category" class="block text-gray-700 font-medium mb-2">I am a</label>
+          <select name="category" id="category" required class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary">
+            <option value="">-- Select --</option>
+            <option value="Parent">Parent</option>
+            <option value="School">School</option>
+          </select>
+        </div>
+
+        <!-- Name -->
+        <div class="mb-6">
+          <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+          <input type="text" name="name" id="name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your name">
+        </div>
+
+        <!-- Email -->
+        <div class="mb-6">
+          <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+          <input type="email" name="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your email">
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-6">
+          <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+          <input type="tel" name="phone" id="phone" required class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your phone number">
+        </div>
+
+        <!-- Message -->
+        <div class="mb-6">
+          <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+          <textarea name="message" id="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your message"></textarea>
+        </div>
+
+        <!-- Consent Checkbox -->
+        <div class="mb-6 flex items-start">
+          <input type="checkbox" id="consent" required class="mr-3 mt-1">
+          <label for="consent" class="text-gray-600 text-sm">
+            I agree to receive communications about Practical Wisdom School courses and updates. You can unsubscribe at any time.
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded font-medium hover:bg-opacity-90 transition-colors">
+          Send Message
+        </button>
+      </form>
+
+      <!-- Demo Class CTA
+      <div class="text-center mt-8">
+        <p class="text-gray-600 mb-4">Prefer to experience our teaching firsthand?</p>
+        <a href="Register-as-a-School.html" class="inline-flex items-center bg-secondary text-white px-6 py-3 rounded font-medium hover:bg-opacity-90 transition-colors">
+          <i class="ri-calendar-line mr-2"></i> Book a Demo Class
+        </a>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for confirmation alert -->
+<script>
+  function handleSubmit(event) {
+    // Allow form to submit but show confirmation after submission
+    event.preventDefault();
+
+    const form = event.target;
+
+    // Use Fetch API to send data
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form)
+    }).then(response => {
+      if (response.ok) {
+        alert("Your contact details have been submitted successfully!");
+        form.reset(); // Clear form
+      } else {
+        alert("There was an error submitting the form. Please try again.");
+      }
+    }).catch(() => {
+      alert("Something went wrong. Please check your connection and try again.");
+    });
+
+    return false;
+  }
+</script>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row justify-between gap-8">
+<div class="md:w-1/3">
+<a href="#" class="text-3xl font-['Pacifico'] text-white mb-4 inline-block">logo</a>
+<p class="text-gray-400 mb-6">Empowering young minds with practical skills for a successful future.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-youtube-fill"></i>
+</a>
+</div>
+</div>
+<div class="md:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-8">
+<div>
+<h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
+<li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+<li><a href="#Progress.html" class="text-gray-400 hover:text-white transition-colors">My Dashboard</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Courses</h3>
+<ul class="space-y-2">
+<li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Career Skills</a></li>
+<li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Life Skills</a></li>
+<li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Tech Skills</a></li>
+<li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Financial Skills</a></li>
+<li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">View All</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Contact</h3>
+<ul class="space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-map-pin-line text-gray-400"></i>
+</div>
+<span class="text-gray-400">Bangalore, 560001</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-phone-line text-gray-400"></i>
+</div>
+<span class="text-gray-400">96000071910</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-mail-line text-gray-400"></i>
+</div>
+<span class="text-gray-400">practicalwisdomschool5@gmail.com</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-12 pt-8 text-center">
+<p class="text-gray-500">© 2025 Practical Wisdom School. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const floatingButton = document.querySelector('.floating-button');
+const profileButton = document.getElementById('profileButton');
+const profileDropdown = document.getElementById('profileDropdown');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 300) {
+floatingButton.classList.remove('hidden');
+} else {
+floatingButton.classList.add('hidden');
+}
+});
+profileButton.addEventListener('click', function(e) {
+e.stopPropagation();
+profileDropdown.classList.toggle('hidden');
+});
+document.addEventListener('click', function(e) {
+if (!profileDropdown.contains(e.target) && !profileButton.contains(e.target)) {
+profileDropdown.classList.add('hidden');
+}
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+const aboutLink = document.querySelector('.scroll-about');
+aboutLink.addEventListener('click', function(e) {
+e.preventDefault();
+const aboutSection = document.querySelector('#about');
+aboutSection.scrollIntoView({ behavior: 'smooth' });
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+const contactLink = document.querySelector('.scroll-contact');
+contactLink.addEventListener('click', function(e) {
+e.preventDefault();
+const contactSection = document.querySelector('#contact');
+contactSection.scrollIntoView({ behavior: 'smooth' });
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+const coursesLink = document.querySelector('.scroll-courses');
+coursesLink.addEventListener('click', function(e) {
+e.preventDefault();
+const coursesSection = document.querySelector('#courses');
+coursesSection.scrollIntoView({ behavior: 'smooth' });
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+const heroLink = document.querySelector('.scroll-hero');
+heroLink.addEventListener('click', function(e) {
+e.preventDefault();
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+});
+</script>
+</body>
+</html>

@@ -24,10 +24,8 @@ input[type="number"]::-webkit-outer-spin-button {
 margin: 0;
 }
 input[type="number"] {
-    appearance: textfield;
-    -webkit-appearance: none;
+-moz-appearance: textfield;
 }
-
 .custom-checkbox {
 position: relative;
 display: flex;
@@ -197,7 +195,7 @@ display: none;
 <h1 class="text-2xl font-['Pacifico'] text-primary">logo</h1>
 </div>
 <nav class="hidden md:flex space-x-8">
-<a href="" data-readdy="true" class="text-gray-600 hover:text-primary transition-colors">Home</a>
+<a href="index.html" data-readdy="true" class="text-gray-600 hover:text-primary transition-colors">Home</a>
 </nav>
 <div class="md:hidden">
 <button type="button" class="w-10 h-10 flex items-center justify-center !rounded-button">
@@ -221,16 +219,16 @@ display: none;
 <div class="md:col-span-2">
 <div class="mb-5">
 <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name <span class="text-red-500">*</span></label>
-<input type="text" id="fullName" name="fullName" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your full name">
+<input type="text" id="fullName" name="fullName"   class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your full name">
 </div>
 <div class="mb-5">
 <label for="dateOfBirth" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth <span class="text-red-500">*</span></label>
-<input type="date" id="dateOfBirth" name="dateOfBirth" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm">
+<input type="date" id="dateOfBirth" name="dateOfBirth"   class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm">
 </div>
 <div class="mb-5">
 <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender <span class="text-red-500">*</span></label>
 <div class="relative">
-<select id="gender" name="gender" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors appearance-none text-sm pr-8">
+<select id="gender" name="gender"   class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors appearance-none text-sm pr-8">
 <option value="" disabled selected>Select gender</option>
 <option value="male">Male</option>
 <option value="female">Female</option>
@@ -244,7 +242,7 @@ display: none;
 </div>
 <div class="mb-5">
 <label for="nationality" class="block text-sm font-medium text-gray-700 mb-1">Nationality <span class="text-red-500">*</span></label>
-<input type="text" id="nationality" name="nationality" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your nationality">
+<input type="text" id="nationality" name="nationality"   class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors text-sm" placeholder="Enter your nationality">
 </div>
 </div>
 <div class="flex flex-col items-center">
@@ -410,7 +408,7 @@ display: none;
 <button type="submit" id="submitRegistration" class="px-8 py-3 bg-primary text-white font-medium text-base rounded shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors !rounded-button whitespace-nowrap">Join Now</button>
 </a>
 <div class="flex items-center space-x-6 text-sm">
-<a href="Login-Page.html" data-readdy="true" class="text-gray-600 hover:text-primary transition-colors">Already signed up? Login</a>
+<a href="Login.html">Already signed up? Login</a>
 <div class="h-4 w-px bg-gray-300"></div>
 <a href="Register-as-a-School.html" data-readdy="true" class="text-gray-600 hover:text-primary transition-colors">Register as a school</a>
 </div>
